@@ -1,36 +1,36 @@
+#### gene_inserts_v0.4.6.json.gz
+original gene inserts file.
 
-##### gene_inserts_v0.4.6.json.gz
-original gene inserts file
+#### gene_inserts_v0.4.6.updated.json.gz
+gene inserts file with updated `gene_summary` and `refseq_accession`.
 
-##### gene_inserts_v0.4.6.updated.json.gz
-gene inserts file with updated `gene_summary` and `refseq_accession`
-
-##### log_diff.txt
-log file with all changes for `gene_summary`
+#### log_diff.txt
+log file with all changes for `gene_summary`.
 
     CHANGE for <ENSGID>
-        OLD: <old gene_summary | MISSING>
-        NEW: <new gene_summary | DELETED>
+        OLD: <summary | MISSING>
+        NEW: <summary | DELETED>
 
-##### log_id.txt
-log file with `ENSGID` not mapping to any `GeneID`
+#### log_id.txt
+log file with `ENSGID` not mapping to any `GeneID`.
 
-##### mapping.tsv
-mapping table between `GeneID`, `ENSGID`, `RSG` (RefSeqGene), `RNA_nucleotide_accession` (mRNA_Prot)
+#### mapping.tsv
+mapping table between `GeneID`, `ENSGID`, `RSG`, `RNA_nucleotide_accession`.
+`RSG` is a RefSeqGene accession (e.g. `NG_000000`).
+`RNA_nucleotide_accession` is a RefSeq accession for RNA (e.g. `NM_000000`).
 
-##### patch.tsv
+#### patch.tsv
 patch file for gene objects in the portal
 
-    <ENSGID>    {'gene_summary': <gene_summary | ''>, 'refseq_accession': <[NG_, NM_, ...] | []>}
+    <ENSGID>    {'gene_summary': <summary>, 'refseq_accession': [<RSG | RNA_nucleotide_accession>, ...]}
 
-`gene_summary: ''` means that a gene summary is missing and the key must be deleted
+`gene_summary: ''` means that a gene summary is missing and the key must be deleted.
+`refseq_accession: []` means that there are no refseq accessions and the key must be deleted.
 
-`refseq_accession: []` means that there are no refseq accessions and the key must be deleted
-
-##### summary.pickle
-pickle file storing gene summaries by
+#### summary.pickle
+pickle file storing gene summaries by RefSeq RNA accession or RefSeqGene accession.
 
     {
-      <RSG | RNA_nucleotide_accession>: <gene_summary>,
+      <RSG | RNA_nucleotide_accession>: <summary>,
       ...
     }
