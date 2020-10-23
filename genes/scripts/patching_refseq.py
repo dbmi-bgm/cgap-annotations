@@ -190,7 +190,7 @@ def main(args):
     #end with
 
     # buffers out
-    fj = open('patch.json', 'w')
+    fj = open('patch.tsv', 'w')
     fl = open('log_id.txt', 'w')
     fc = open('log_diff.txt', 'w')
 
