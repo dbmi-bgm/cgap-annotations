@@ -18,7 +18,7 @@ from Bio import SeqIO
 ################################################
 #   Functions
 ################################################
-def parse_refseqgene(filename, summary, c=0):
+def parse_sourcefile(filename, summary, c=0):
     ''' '''
     records = SeqIO.parse(filename, "genbank")
     sys.stderr.write('\t' + filename + '\n')
@@ -59,7 +59,7 @@ def main(args):
     sys.stderr.flush()
 
     # gene2refseq
-    # map nucleotide_accession to GeneID in NA_map
+    #
     # initialize GeneID_map
     # header:
         #tax_id [9606]
@@ -151,10 +151,10 @@ def main(args):
     sys.stderr.write('loaded LRG_RefSeqGene...\n')
     sys.stderr.flush()
 
-    # getting summary from refseqgene
-    if args['refseqgene']:
-        for filename in args['refseqgene']:
-            parse_refseqgene(filename, summary)
+    # getting summaries from sourcefile
+    if args['sourcefile']:
+        for filename in args['sourcefile']:
+            parse_sourcefile(filename, summary)
         #end for
         # save summary as pickle file
         with open("summary.pickle", "wb") as fo:
@@ -166,9 +166,9 @@ def main(args):
             summary = pickle.load(fi)
         #end with
     else:
-        sys.exit('specify either --refseqgene or --summarydict argument\n')
+        sys.exit('specify either --sourcefile or --summarydict argument\n')
     #end if
-    sys.stderr.write('loaded refseqgene...\n')
+    sys.stderr.write('loaded sourcefile...\n')
     sys.stderr.flush()
 
     # write mappig table
@@ -300,7 +300,7 @@ if __name__ == '__main__':
     parser.add_argument('--LRG_RefSeqGene', help='LRG_RefSeqGene mapping file', required=True)
     parser.add_argument('--gene2ensembl', help='gene2ensembl mapping file', required=True)
     parser.add_argument('--gene2refseq', help='gene2refseq mapping file', required=True)
-    parser.add_argument('--refseqgene', help='refseqgene files to use as list', nargs='+', required=False)
+    parser.add_argument('--sourcefile', help='gbff file to use as source, it is possible to list multiple files', nargs='+', required=False)
     parser.add_argument('--summarydict', help='dict of gene_summary in pickle format', required=False)
 
     args = vars(parser.parse_args())
