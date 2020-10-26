@@ -1,13 +1,15 @@
-=====
-Genes
-=====
+============
+Data Sources
+============
 
 Data sources available for genes.
 
+Current and older data sources are stored in S3 bucket:
+
+    s3://cgap-annotations
+
 RefSeq
 ++++++
-
-*Current version accessed 22-10-2020.*
 
 Files
 -----
@@ -57,3 +59,14 @@ Additionally reports the *accession.version* of the associated RNA and protein R
 ::
 
     #tax_id   GeneID   status   RNA_nucleotide_accession.version   RNA_nucleotide_gi   protein_accession.version   protein_gi   genomic_nucleotide_accession.version   genomic_nucleotide_gi   start_position_on_the_genomic_accession   end_position_on_the_genomic_accession   orientation   assembly   mature_peptide_accession.version   mature_peptide_gi   Symbol
+
+Version
+-------
+
+*Current version accessed 2020-10-22.*
+
+  - LRG_RefSeqGene: v20201020
+  - refseqgene.<n>.genomic.gbff.gz: v20201020
+  - human.<n>.rna.gbff.gz: v20201020
+  - gene2ensembl.gz: v20201022
+  - gene2refseq.gz: v20201022

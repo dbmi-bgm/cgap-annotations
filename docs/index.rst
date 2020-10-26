@@ -9,8 +9,6 @@ Overview
 
 This is a documentation for genes and variants annotation in CGAP.
 
-Contents:
-
 .. toctree::
    :hidden:
 
@@ -19,4 +17,4 @@ Contents:
 .. toctree::
    :maxdepth: 4
 
-   sources
+   genes

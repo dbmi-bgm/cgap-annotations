@@ -36,3 +36,14 @@ pickle file storing summaries by RefSeq RNA accession or RefSeqGene accession
       <RSG | RNA_nucleotide_accession>: <summary>,
       ...
     }
+
+### command
+files have been generate using patching_refseq.py (in scripts)
+
+    ./patching_refseq.py \
+        --gene_inserts gene_inserts_v0.4.6.json \
+        --LRG_RefSeqGene LRG_RefSeqGene \
+        --gene2ensembl gene2ensembl \
+        --gene2refseq gene2refseq \
+        --sourcefile refseqgene.1.genomic.gbff refseqgene.2.genomic.gbff refseqgene.3.genomic.gbff refseqgene.4.genomic.gbff refseqgene.5.genomic.gbff \
+                     human.1.rna.gbff human.2.rna.gbff human.3.rna.gbff human.4.rna.gbff human.5.rna.gbff human.6.rna.gbff human.7.rna.gbff human.8.rna.gbff
