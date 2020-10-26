@@ -47,3 +47,5 @@ files have been generate using patching_refseq.py (in scripts)
         --gene2refseq gene2refseq \
         --sourcefile refseqgene.1.genomic.gbff refseqgene.2.genomic.gbff refseqgene.3.genomic.gbff refseqgene.4.genomic.gbff refseqgene.5.genomic.gbff \
                      human.1.rna.gbff human.2.rna.gbff human.3.rna.gbff human.4.rna.gbff human.5.rna.gbff human.6.rna.gbff human.7.rna.gbff human.8.rna.gbff
+
+source files are available in `s3://cgap-annotations/RefSeq/RefSeq_2020-10-22`
