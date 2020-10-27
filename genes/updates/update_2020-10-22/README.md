@@ -32,10 +32,19 @@ mapping table between `GeneID`, `ENSGID`, `RSG`, `RNA_nucleotide_accession`.
 `RSG` is a RefSeqGene accession (e.g. `NG_000000`).
 `RNA_nucleotide_accession` is a RefSeq accession for RNA (e.g. `NM_000000`)
 
-#### patch.tsv
+#### patch.json
 patch file for gene objects in the portal
 
-    <ENSGID>    {'gene_summary': <summary>, 'refseq_accession': [<RSG | RNA_nucleotide_accession>, ...]}
+    {
+      <ENSGID>: {
+        "gene_summary": <summary>,
+        "refseq_accession": [
+        <RSG | RNA_nucleotide_accession>,
+        ...
+        ]
+      },
+      ...
+    }
 
 `gene_summary: ''` means that a gene summary is missing and the key must be deleted.
 `refseq_accession: []` means that there are no refseq accessions and the key must be deleted
