@@ -190,11 +190,11 @@ def main(args):
     #end with
 
     # buffers out
-    fj = open('patch.tsv', 'w')
     fl = open('log_id.txt', 'w')
     fc = open('log_diff.txt', 'w')
 
     # update genes from gene_inserts
+    patch_json = {}
     for gene in gene_inserts:
         ensgid = gene['ensgid']
         gene_summary = set()
@@ -253,7 +253,8 @@ def main(args):
                         del gene['refseq_accession']
                     #end if
                 #end if
-                if patch_dict: fj.write('{0}\t{1}\n'.format(ensgid, patch_dict))
+                if patch_dict:
+                    patch_json.setdefault(ensgid, patch_dict)
                 #end if
             else:
                 fl.write('MISSING RefSeq for ' + ensgid + '\n')
@@ -271,7 +272,8 @@ def main(args):
                 patch_dict['gene_summary'] = ''
                 del gene['gene_summary']
             #end if
-            if patch_dict: fj.write('{0}\t{1}\n'.format(ensgid, patch_dict))
+            if patch_dict:
+                patch_json.setdefault(ensgid, patch_dict)
             #end if
             continue
         #end if
@@ -283,8 +285,11 @@ def main(args):
         json.dump(gene_inserts, fo, indent=1)
     #end with
 
+    with open('patch.json', 'w') as fo:
+        json.dump(patch_json, fo, indent=1)
+    #end with
+
     # closing buffers out
-    fj.close()
     fl.close()
     fc.close()
 #end def main
