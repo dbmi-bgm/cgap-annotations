@@ -59,7 +59,6 @@ def main(args):
     sys.stderr.flush()
 
     # gene2refseq
-    #
     # initialize GeneID_map
     # header:
         #tax_id [9606]
@@ -98,6 +97,7 @@ def main(args):
     sys.stderr.flush()
 
     # gene2ensembl
+    # map Ensembl_gene_identifier to GeneID in ENSG_map
     # map GeneID to Ensembl_gene_identifier in GeneID_map
     # header:
         #tax_id [9606]

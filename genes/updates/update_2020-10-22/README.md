@@ -1,3 +1,14 @@
+### update
+In v0.4.6 of genes annotations, there are errors with genes summaries that are missing or assigned to wrong genes.
+
+v0.4.6 uses HGNC as the main source to retrieve refseq accessions associated with each gene.
+However, HGNC still uses an older version of refseq and has inconsistencies with the current release, where obsolete accessions are updated or removed.
+The data source is also partial being limited to only RefSeqGene.
+
+This patch replaces HGNC and uses Ensembl identifiers to map each gene to the correct and up-to-date refseq accessions.
+Gene summaries are associated with the correct genes and refseq accessions are updated fixing HGNC inconsistencies.
+The patch also extends available annotations by including refseq for mRNA_prot on top of RefSeqGene.
+
 ### files in folder
 
 #### gene_inserts_v0.4.6.json.gz
