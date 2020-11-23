@@ -40,7 +40,7 @@ def parse_region(tb, region, fields_set, fo, c=0):
 def main(args):
     ''' '''
     # Variables
-    chr = args['chr']
+    chr = args['chr'] + ':'
     fields_set = set()
 
     # Buffers
