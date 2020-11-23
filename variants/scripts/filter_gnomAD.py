@@ -44,7 +44,7 @@ def main(args):
     fields_set = set()
 
     # Buffers
-    fo = open('trimmed_' + args['inputfile'].split('/')[-1].replace('.bgz', ''), 'w')
+    fo = open('trimmed_' + args['inputfile'].split('/')[-1].replace('.bgz', '').replace('.gz', ''), 'w')
     tb = tabix.open(args['inputfile'])
 
     # Getting fields
