@@ -46,7 +46,7 @@ Source file `fordownload`_.
 ClinVar
 ^^^^^^^
 
-*Current version is v2020111. ClinVar is updated weekly.*
+*Current version is v20201101. ClinVar is updated weekly.*
 
 This is the data source for ClinVar to be used with ``--custom``.
 
@@ -114,10 +114,13 @@ gnomAD
 
 *Current version 3.1.*
 
-File are available for download at https://gnomad.broadinstitute.org/downloads.
+Files are available for download at https://gnomad.broadinstitute.org/downloads.
 
-Files have been preprocessed to reduce the number of annotations.
+Files have been preprocessed to reduce the number of annotations using ``filter_gnomAD.py`` script inside scripts folder.
+The annotations that are used and maintained are listed in ``gnomAD_3.1_fields.tsv`` file inside variants folder.
 
+gnomAD files have been filtered while splitting by chromosomes.
+The filtered vcf files have been concatenated, compressed with bgzip and indexed using Tabix.
 
 Run Vep
 -------
@@ -158,7 +161,7 @@ Version
 
   - Vep: v101
   - MaxEnt: v20040421
-  - ClinVar: v2020111
+  - ClinVar: v20201101
   - SpliceAI: v1.3
   - dbNSFP: v4.1a
   - gnomAD: v3.1
