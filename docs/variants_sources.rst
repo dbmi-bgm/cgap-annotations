@@ -28,6 +28,10 @@ Source file `v101`_ for homo_sapiens on GRCh38.
 
 .. _v101: ftp://ftp.ensembl.org/pub/release-101/variation/vep/homo_sapiens_vep_101_GRCh38.tar.gz
 
+.. code-block:: bash
+
+    $ wget ftp://ftp.ensembl.org/pub/release-101/variation/vep/homo_sapiens_vep_101_GRCh38.tar.gz
+
 MaxEnt
 ^^^^^^
 
@@ -46,12 +50,12 @@ ClinVar
 
 This is the data source for ClinVar to be used with ``--custom``.
 
-.. code-block::
+.. code-block:: bash
 
     # Compressed VCF file
-    curl -O ftp://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh38/clinvar.vcf.gz
+    $ curl -O ftp://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh38/clinvar.vcf.gz
     # Index file
-    curl -O ftp://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh38/clinvar.vcf.gz.tbi
+    $ curl -O ftp://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh38/clinvar.vcf.gz.tbi
 
 SpliceAI
 ^^^^^^^^
@@ -64,19 +68,21 @@ Download requires a log in on illumina platform and `BaseSpace sequence CLI`_.
 
 .. _BaseSpace sequence CLI: https://developer.basespace.illumina.com/docs/content/documentation/cli/cli-overview
 
-.. code-block::
+.. code-block:: bash
 
     # Authenticate
-    bs auth
+    $ bs auth
     # Get id for dataset genome_scores
-    bs list dataset
+    $ bs list dataset
     # Download
-    bs dataset download --id <datasetid> -o .
+    $ bs dataset download --id <datasetid> -o .
 
 For annotation we are using the raw hg38 files and their index:
 
   - ``spliceai_scores.raw.snv.hg38.vcf.gz``
+  - ``spliceai_scores.raw.snv.hg38.vcf.gz.tbi``
   - ``spliceai_scores.raw.indel.hg38.vcf.gz``
+  - ``spliceai_scores.raw.indel.hg38.vcf.gz.tbi``
 
 dbNSFP
 ^^^^^^
@@ -91,12 +97,17 @@ Source file `dbNSFP`_.
 
 To create the data source:
 
-.. code-block:: none
+.. code-block:: bash
 
-    > unzip dbNSFP4.1a.zip
-    > zcat dbNSFP4.1a_variant.chr1.gz | head -n1 > h
-    > zgrep -h -v ^#chr dbNSFP4.1a_variant.chr* | sort -T /path/to/tmp_folder -k1,1 -k2,2n - | cat h - | bgzip -c > dbNSFP4.1a.gz
-    > tabix -s 1 -b 2 -e 2 dbNSFP4.1a.gz
+    # Download and unpack
+    $ wget ftp://dbnsfp:dbnsfp@dbnsfp.softgenetics.com/dbNSFP4.1a.zip
+    $ unzip dbNSFP4.1a.zip
+    # Get header
+    $ zcat dbNSFP4.1a_variant.chr1.gz | head -n1 > h
+    # Extract information and compress to bgzip
+    $ zgrep -h -v ^#chr dbNSFP4.1a_variant.chr* | sort -T /path/to/tmp_folder -k1,1 -k2,2n - | cat h - | bgzip -c > dbNSFP4.1a.gz
+    # Create Tabix index
+    $ tabix -s 1 -b 2 -e 2 dbNSFP4.1a.gz
 
 gnomAD
 ^^^^^^
@@ -111,9 +122,9 @@ Files have been preprocessed to reduce the number of annotations.
 Run Vep
 -------
 
-.. code-block:: none
+.. code-block:: bash
 
-    # base command
+    # Base command
     vep \
     -i input.vcf \
     -o output.vep.vcf \
@@ -129,14 +140,14 @@ Run Vep
     --vcf \
     --dir_plugins <PATH/VEP_plugins>
 
-    # additional plugins
+    # Additional plugins
     --plugin SpliceRegion,Extended
     --plugin MaxEntScan,<PATH/fordownload>
     --plugin TSSDistance
     --plugin dbNSFP,<PATH/dbNSFP.gz>,ALL
     --plugin SpliceAI,snv=<PATH/spliceai_scores.raw.snv.hg38.vcf.gz>,indel=<PATH/spliceai_scores.raw.indel.hg38.vcf.gz>
 
-    # custom annotations
+    # Custom annotations
     --custom <PATH/clinvar.vcf.gz>,ClinVar,vcf,exact,0,ALLELEID,CLNSIG,CLNREVSTAT,CLNDN,CLNDISDB
     --custom <PATH/gnomAD.vcf.gz>,gnomADg,vcf,exact,0,AC,AC-XX,AC-XY,AC-afr,AC-ami,AC-amr,AC-asj,AC-eas,AC-fin,AC-mid,AC-nfe,AC-oth,AC-sas,AF,AF-XX,AF-XY,AF-afr,AF-ami,AF-amr,AF-asj,AF-eas,AF-fin,AF-mid,AF-nfe,AF-oth,AF-sas,AF_popmax,AN,AN-XX,AN-XY,AN-afr,AN-ami,AN-amr,AN-asj,AN-eas,AN-fin,AN-mid,AN-nfe,AN-oth,AN-sas,nhomalt,nhomalt-XX,nhomalt-XY,nhomalt-afr,nhomalt-ami,nhomalt-amr,nhomalt-asj,nhomalt-eas,nhomalt-fin,nhomalt-mid,nhomalt-nfe,nhomalt-oth,nhomalt-sas
 
