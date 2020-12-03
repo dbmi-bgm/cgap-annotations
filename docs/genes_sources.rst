@@ -2,11 +2,7 @@
 Data Sources
 ============
 
-Data sources available for genes.
-
-Current and older data sources are stored in S3 bucket:
-
-    s3://cgap-annotations
+Data sources available for genes annotation.
 
 RefSeq
 ++++++

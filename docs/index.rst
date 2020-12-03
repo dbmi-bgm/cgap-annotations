@@ -8,6 +8,9 @@ Overview
 ========
 
 This is a documentation for genes and variants annotation in CGAP.
+The current and older data sources available for annotation are stored in S3 bucket:
+
+    s3://cgap-annotations
 
 .. toctree::
    :hidden:
@@ -18,3 +21,4 @@ This is a documentation for genes and variants annotation in CGAP.
    :maxdepth: 4
 
    genes
+   variants
