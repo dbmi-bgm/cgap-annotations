@@ -11,7 +11,7 @@ See full [*documentation*](https://cgap-annotations.readthedocs.io/en/latest/ "d
 │   └── updates
 │       └── update_2020-10-22
 └── variants
-
+    └── scripts
 ```
 
 ## genes
@@ -23,3 +23,9 @@ This folder contains scripts used to modify/extend annotations for genes.
 #### updates
 
 This folder contains updates and modifications to annotations for genes.
+
+## variants
+
+#### scripts
+
+This folder contains scripts used to modify/extend annotations for variants.
