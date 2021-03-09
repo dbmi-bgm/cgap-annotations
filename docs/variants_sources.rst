@@ -172,6 +172,7 @@ dbSNP
 *Current database version is v151.*
 
 .. code-block:: bash
+
     # Download
     $ wget https://ftp.ncbi.nlm.nih.gov/snp/pre_build152/organisms/human_9606_b151_GRCh38p7/VCF/GATK/00-All.vcf.gz
     # Parse to reduce size
