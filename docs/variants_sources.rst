@@ -167,7 +167,7 @@ Version
   - gnomAD: v3.1
 
 dbSNP
-+++
++++++
 
 *Current database version is v151.*
 
