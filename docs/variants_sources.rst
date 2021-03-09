@@ -171,9 +171,12 @@ dbSNP
 
 *Current database version is v151.*
 
-# Download, parse, and index
+.. code-block:: bash
+    # Download
     $ wget https://ftp.ncbi.nlm.nih.gov/snp/pre_build152/organisms/human_9606_b151_GRCh38p7/VCF/GATK/00-All.vcf.gz
+    # Parse to reduce size
     $ python vcf_parse_keep5.py 00-All.vcf.gz 00-All_keep5.vcf
+    # Compress and index
     $ bgzip 00-All_keep5.vcf
     $ bcftools index 00-All_keep5.vcf.gz
     $ tabix 00-All_keep5.vcf.gz
