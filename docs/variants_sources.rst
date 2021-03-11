@@ -173,7 +173,7 @@ dbSNP
 
 .. code-block:: bash
 
-    # Download
+    # Download all variants file from the GATK folder
     $ wget https://ftp.ncbi.nlm.nih.gov/snp/pre_build152/organisms/human_9606_b151_GRCh38p7/VCF/GATK/00-All.vcf.gz
     # Parse to reduce size
     $ python vcf_parse_keep5.py 00-All.vcf.gz 00-All_keep5.vcf
