@@ -181,3 +181,15 @@ dbSNP
     $ bgzip 00-All_keep5.vcf
     $ bcftools index 00-All_keep5.vcf.gz
     $ tabix 00-All_keep5.vcf.gz
+
+hg19 Liftover
++++++++++++++
+
+This liftover (hg38 to hg19) is carried out exclusively in pyliftover (currently v0.4).
+
+hgvsg
++++++
+
+*Current version 20.05*
+
+The Human Genome Variation Society has strict guidelines and best practices for describing human genomic variants based on the reference genome, chromosomal position, and variant type.  hgvsg can be used to describe all genomic variants, not just those within coding regions and script used to generate these in our pipeline implements the recommendations found here for DNA variants (http://varnomen.hgvs.org/recommendations/DNA/).  We describe substitions, deletions, insertions, and deletion-insertions for all variants on the 23 nuclear chromosomes and the mitochondrial genome within this field.
