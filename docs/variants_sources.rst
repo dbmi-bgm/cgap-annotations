@@ -185,11 +185,11 @@ dbSNP
 hg19 Liftover
 +++++++++++++
 
-This liftover (hg38 to hg19) is carried out exclusively in pyliftover (currently v0.4).
+This liftover (hg38 to hg19) is carried out exclusively with pyliftover (currently v0.4).
 
 hgvsg
 +++++
 
 *Current version 20.05*
 
-The Human Genome Variation Society has strict guidelines and best practices for describing human genomic variants based on the reference genome, chromosomal position, and variant type.  hgvsg can be used to describe all genomic variants, not just those within coding regions and script used to generate these in our pipeline implements the recommendations found here for DNA variants (http://varnomen.hgvs.org/recommendations/DNA/).  We describe substitions, deletions, insertions, and deletion-insertions for all variants on the 23 nuclear chromosomes and the mitochondrial genome within this field.
+The Human Genome Variation Society has strict guidelines and best practices for describing human genomic variants based on the reference genome, chromosomal position, and variant type. hgvsg can be used to describe all genomic variants, not just those within coding regions. The script used to generate hgvsg infomation in our pipeline implements the recommendations found here for DNA variants (http://varnomen.hgvs.org/recommendations/DNA/). We describe substitions, deletions, insertions, and deletion-insertions for all variants on the 23 nuclear chromosomes and the mitochondrial genome within this field.
