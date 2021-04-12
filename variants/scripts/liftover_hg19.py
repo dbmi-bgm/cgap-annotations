@@ -31,7 +31,7 @@ def main(args):
     vcf.header.add_tag_definition(hg19CHROM_definition)
 
     # get chain file for liftover
-    lo = LiftOver('hg38', 'hg19')
+    lo = LiftOver(args['chainfile'])
 
     # write header and then loop variants, adding liftover coordiantes to INFO fields when appropriate. write all variants.
     with open(args['outputfile'], 'w') as fo:
@@ -58,6 +58,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Add hg19 liftover coordinates to INFO field for each qualified variant')
 
     parser.add_argument('-i','--inputfile', help='input VCF file', required=True)
+    parser.add_argument('-c','--chainfile', help='input hg38-to-hg19-chain file', required=True)
     parser.add_argument('-o','--outputfile', help='output VCF file', required=True)
 
     args = vars(parser.parse_args())
