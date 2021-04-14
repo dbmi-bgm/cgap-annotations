@@ -23,7 +23,6 @@ import sys, argparse, subprocess
 def main(args):
     # open input vcf
     vcf = vcf_parser.Vcf(args['inputfile'])
-    #vcf = vcf_parser.Vcf('/Users/phil_hms/virtual_envs/virtualenv_local_python3/liftover/GAPFI1JZJAVE.vcf.gz')
     # add 2 new tag definitions - one for CHR and one for POS
     hg19CHROM_definition = '##INFO=<ID=hg19_chr,Number=.,Type=String,Description="CHROM in hg19 using LiftOver from pyliftover">'
     hg19POS_definition = '##INFO=<ID=hg19_pos,Number=.,Type=Integer,Description="POS in hg19 using LiftOver from pyliftover (converted back to 1-based)">'
@@ -35,7 +34,6 @@ def main(args):
 
     # write header and then loop variants, adding liftover coordiantes to INFO fields when appropriate. write all variants.
     with open(args['outputfile'], 'w') as fo:
-    #with open('/Users/phil_hms/virtual_envs/virtualenv_local_python3/liftover/fix', 'w') as fo:
         vcf.write_header(fo)
         for vnt_obj in vcf.parse_variants():
             hits = lo.convert_coordinate(vnt_obj.CHROM, vnt_obj.POS-1)
