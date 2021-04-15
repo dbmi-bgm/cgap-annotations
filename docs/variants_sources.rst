@@ -109,10 +109,10 @@ To create the data source:
     # Create Tabix index
     $ tabix -s 1 -b 2 -e 2 dbNSFP4.1a.gz
 
-gnomAD
-^^^^^^
+gnomAD genomes
+^^^^^^^^^^^^^^
 
-*Current version 3.1.*
+*Current genome version 3.1.*
 
 Files are available for download at https://gnomad.broadinstitute.org/downloads.
 
@@ -120,7 +120,32 @@ Files have been preprocessed to reduce the number of annotations using ``filter_
 The annotations that are used and maintained are listed in ``gnomAD_3.1_fields.tsv`` file inside variants folder.
 
 gnomAD files have been filtered while splitting by chromosomes.
-The filtered vcf files have been concatenated, compressed with bgzip and indexed using Tabix.
+The filtered VCF files have been concatenated, compressed with bgzip and indexed using Tabix.
+
+gnomAD exomes
+^^^^^^^^^^^^^
+
+*Current exome version 2.1.1 hg38 liftover.*
+
+The all chromosomes VCF (85.31 GiB, MD5: cff8d0cfed50adc9211d1feaed2d4ca7) was downloaded from https://gnomad.broadinstitute.org/downloads.
+
+This file was preprocessed to reduce the number of annotations using the ``gnomAD_exome_v2_filter.py`` scripts inside the scripts folder.
+The annotations that are used and maintained are listed in the ``gnomAD_2.1_fields.tsv`` file inside the variants folder.
+
+The filtered VCF was compressed with bgzip and indexed using Tabix.
+
+CADD
+^^^^
+
+*Current version is v1.6*
+
+CADD SNV and indel files were downloaded from https://cadd-staging.kircherlab.bihealth.org/download
+
+wget https://krishna.gs.washington.edu/download/CADD/v1.6/GRCh38/whole_genome_SNVs.tsv.gz
+wget https://krishna.gs.washington.edu/download/CADD/v1.6/GRCh38/gnomad.genomes.r3.0.indel.tsv.gz
+
+These files were supplied to the CADD plugin within VEP.
+
 
 Run Vep
 -------
@@ -185,7 +210,9 @@ dbSNP
 hg19 Liftover
 +++++++++++++
 
-This liftover (hg38 to hg19) is carried out exclusively with pyliftover (currently v0.4).
+This liftover (hg38 to hg19) is carried out exclusively with pyliftover (currently v0.4).  
+
+The hg38 to hg19 chain file was supplied to pyliftover from UCSC: http://hgdownload.cse.ucsc.edu/goldenpath/hg38/liftOver/hg38ToHg19.over.chain.gz
 
 hgvsg
 +++++
