@@ -143,11 +143,23 @@ CADD SNV and indel files were downloaded from https://cadd-staging.kircherlab.bi
 
 .. code-block:: bash
 
-    $ wget https://krishna.gs.washington.edu/download/CADD/v1.6/GRCh38/whole_genome_SNVs.tsv.gz
+   $ wget https://krishna.gs.washington.edu/download/CADD/v1.6/GRCh38/whole_genome_SNVs.tsv.gz
     $ wget https://krishna.gs.washington.edu/download/CADD/v1.6/GRCh38/gnomad.genomes.r3.0.indel.tsv.gz
 
 These files were supplied to the CADD plugin within VEP.
 
+Conservation Scores
+^^^^^^^^^^^^^^^^^^^
+
+*Current version is UCSC hg38 for phyloP30way, phyloP100way, and phastCons100way*
+
+.. code-block:: bash
+
+   $ wget http://hgdownload.cse.ucsc.edu/goldenpath/hg38/phyloP30way/hg38.phyloP30way.bw
+    $ wget http://hgdownload.cse.ucsc.edu/goldenpath/hg38/phyloP100way/hg38.phyloP100way.bw
+    $ wget http://hgdownload.cse.ucsc.edu/goldenpath/hg38/phastCons100way/hg38.phastCons100way.bw
+
+These files were supplied to customs within VEP.
 
 Run Vep
 -------
@@ -174,17 +186,22 @@ Run Vep
     --plugin SpliceRegion,Extended
     --plugin MaxEntScan,<PATH/fordownload>
     --plugin TSSDistance
-    --plugin dbNSFP,<PATH/dbNSFP.gz>,ALL
+    --plugin dbNSFP,<PATH/dbNSFP.gz>,phyloP100way_vertebrate_rankscore,GERP++_RS,GERP++_RS_rankscore,SiPhy_29way_logOdds,SiPhy_29way_pi,PrimateAI_score,PrimateAI_pred,PrimateAI_rankscore,CADD_raw_rankscore,Polyphen2_HVAR_pred,Polyphen2_HVAR_rankscore,Polyphen2_HVAR_score,SIFT_pred,SIFT_converted_rankscore,SIFT_score,REVEL_rankscore,REVEL_score,Ensembl_geneid,Ensembl_proteinid,Ensembl_transcriptid
     --plugin SpliceAI,snv=<PATH/spliceai_scores.raw.snv.hg38.vcf.gz>,indel=<PATH/spliceai_scores.raw.indel.hg38.vcf.gz>
+    --plugin CADD,<PATH/whole_genome_SNVs.tsv.gz>,<PATH/gnomad.genomes.r3.0.indel.tsv.gz>
 
     # Custom annotations
     --custom <PATH/clinvar.vcf.gz>,ClinVar,vcf,exact,0,ALLELEID,CLNSIG,CLNREVSTAT,CLNDN,CLNDISDB,CLNDNINCL,CLNDISDBINCL,CLNHGVS,CLNSIGCONF,CLNSIGINCL,CLNVC,CLNVCSO,CLNVI,DBVARID,GENEINFO,MC,ORIGIN,RS,SSR
     --custom <PATH/gnomAD.vcf.gz>,gnomADg,vcf,exact,0,AC,AC-XX,AC-XY,AC-afr,AC-ami,AC-amr,AC-asj,AC-eas,AC-fin,AC-mid,AC-nfe,AC-oth,AC-sas,AF,AF-XX,AF-XY,AF-afr,AF-ami,AF-amr,AF-asj,AF-eas,AF-fin,AF-mid,AF-nfe,AF-oth,AF-sas,AF_popmax,AN,AN-XX,AN-XY,AN-afr,AN-ami,AN-amr,AN-asj,AN-eas,AN-fin,AN-mid,AN-nfe,AN-oth,AN-sas,nhomalt,nhomalt-XX,nhomalt-XY,nhomalt-afr,nhomalt-ami,nhomalt-amr,nhomalt-asj,nhomalt-eas,nhomalt-fin,nhomalt-mid,nhomalt-nfe,nhomalt-oth,nhomalt-sas
+    --custom <PATH/trimmed_gnomad.exomes.r2.1.1.sites.liftover_grch38.vcf.gz>,gnomADe2,vcf,exact,0,AC,AN,AF,nhomalt,AC_oth,AN_oth,AF_oth,nhomalt_oth,AC_sas,AN_sas,AF_sas,nhomalt_sas,AC_fin,AN_fin,AF_fin,nhomalt_fin,AC_eas,AN_eas,AF_eas,nhomalt_eas,AC_amr,AN_amr,AF_amr,nhomalt_amr,AC_afr,AN_afr,AF_afr,nhomalt_afr,AC_asj,AN_asj,AF_asj,nhomalt_asj,AC_nfe,AN_nfe,AF_nfe,nhomalt_nfe,AC_female,AN_female,AF_female,nhomalt_female,AC_male,AN_male,AF_male,nhomalt_male,AF_popmax
+    --custom <PATH/hg38.phyloP100way.bw>,phylop100verts,bigwig,exact,0
+    --custom <PATH/hg38.phyloP30way.bw>,phylop30mams,bigwig,exact,0
+    --custom <PATH/hg38.phastCons100way.bw>,phastcons100verts,bigwig,exact,0
 
 Version
 -------
 
-*Current version accessed 2020-11-05.*
+*Current version accessed 2021-04-20.*
 
   - Vep: v101
   - MaxEnt: v20040421
@@ -192,6 +209,11 @@ Version
   - SpliceAI: v1.3
   - dbNSFP: v4.1a
   - gnomAD: v3.1
+  - gnomAD_exomes: v2.1.1
+  - CADD: v1.6
+  - phyloP30way: hg38
+  - phyloP100way: hg38
+  - phastCons100way: hg38
 
 dbSNP
 +++++
