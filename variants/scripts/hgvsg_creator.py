@@ -130,7 +130,7 @@ def create_hgvsg(CHROM, POS, REF, ALT):
 
 def main(args):
     vcf = vcf_parser.Vcf(args['inputfile'])
-    hgvsg_definition = '##INFO=<ID=hgvsg,Number=.,Type=String,Description="hgvsg created from variant following best practices - http://varnomen.hgvs.org/recommendations/DNA/">'
+    hgvsg_definition = '##INFO=<ID=hgvsg,Number=1,Type=String,Description="hgvsg created from variant following best practices - http://varnomen.hgvs.org/recommendations/DNA/">'
     vcf.header.add_tag_definition(hgvsg_definition)
 
     with open(args['outputfile'], 'w') as fo:

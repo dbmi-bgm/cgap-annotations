@@ -24,8 +24,8 @@ def main(args):
     # open input vcf
     vcf = vcf_parser.Vcf(args['inputfile'])
     # add 2 new tag definitions - one for CHR and one for POS
-    hg19CHROM_definition = '##INFO=<ID=hg19_chr,Number=.,Type=String,Description="CHROM in hg19 using LiftOver from pyliftover">'
-    hg19POS_definition = '##INFO=<ID=hg19_pos,Number=.,Type=Integer,Description="POS in hg19 using LiftOver from pyliftover (converted back to 1-based)">'
+    hg19CHROM_definition = '##INFO=<ID=hg19_chr,Number=1,Type=String,Description="CHROM in hg19 using LiftOver from pyliftover">'
+    hg19POS_definition = '##INFO=<ID=hg19_pos,Number=1,Type=Integer,Description="POS in hg19 using LiftOver from pyliftover (converted back to 1-based)">'
     vcf.header.add_tag_definition(hg19POS_definition)
     vcf.header.add_tag_definition(hg19CHROM_definition)
 
