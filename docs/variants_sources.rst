@@ -141,8 +141,10 @@ CADD
 
 CADD SNV and indel files were downloaded from https://cadd-staging.kircherlab.bihealth.org/download
 
-wget https://krishna.gs.washington.edu/download/CADD/v1.6/GRCh38/whole_genome_SNVs.tsv.gz
-wget https://krishna.gs.washington.edu/download/CADD/v1.6/GRCh38/gnomad.genomes.r3.0.indel.tsv.gz
+.. code-block:: bash
+
+    $ wget https://krishna.gs.washington.edu/download/CADD/v1.6/GRCh38/whole_genome_SNVs.tsv.gz
+    $ wget https://krishna.gs.washington.edu/download/CADD/v1.6/GRCh38/gnomad.genomes.r3.0.indel.tsv.gz
 
 These files were supplied to the CADD plugin within VEP.
 
@@ -210,7 +212,7 @@ dbSNP
 hg19 Liftover
 +++++++++++++
 
-This liftover (hg38 to hg19) is carried out exclusively with pyliftover (currently v0.4).  
+This liftover (hg38 to hg19) is carried out exclusively with pyliftover (currently v0.4).
 
 The hg38 to hg19 chain file was supplied to pyliftover from UCSC: http://hgdownload.cse.ucsc.edu/goldenpath/hg38/liftOver/hg38ToHg19.over.chain.gz
 
