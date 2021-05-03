@@ -1,0 +1,14 @@
+#Pipeline
+sys
+argparse
+tabix
+os
+granite-suite
+subprocess
+pyliftover==0.4
+
+#Other
+json
+re
+pickle
+Bio
