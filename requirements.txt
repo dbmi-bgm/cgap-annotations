@@ -6,6 +6,7 @@ os
 granite-suite
 subprocess
 pyliftover==0.4
+pytest
 
 #Other
 json
