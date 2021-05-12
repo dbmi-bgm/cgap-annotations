@@ -16,7 +16,7 @@ from liftover_hg19 import (
 
 def test_full_process():
     # Variables and Run
-    args = {'inputfile': 'test/files/test_reduced_sorted','outputfile':'output.vcf'}
+    args = {'inputfile': 'test/files/test_reduced_sorted','outputfile':'output.vcf','chainfile':'test/files/test.chain'}
     # Test
     main_liftover_hg19(args)
     a = os.popen('bgzip -c -d output.vcf.gz')
