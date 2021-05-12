@@ -12,6 +12,10 @@ The current and older data sources available for annotation are stored in S3 buc
 
     s3://cgap-annotations
 
+
+This bucket is private and not meant for public sharing of files. It is for internal file back-up and most of them are in Glacier.
+
+
 .. toctree::
    :hidden:
 
