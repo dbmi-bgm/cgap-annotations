@@ -12,7 +12,7 @@
 ################################################
 
 from granite.lib import vcf_parser
-import sys, argparse
+import sys, argparse, subprocess
 
 ################################################
 #   Functions
@@ -36,6 +36,8 @@ def main(args):
         vcf.write_header(fo)
         for vnt_obj in vcf.parse_variants():
             vcf.write_variant(fo, vnt_obj)
+
+    subprocess.run(["bgzip", args['outputfile']])
 
 ################################################
 #   Main
