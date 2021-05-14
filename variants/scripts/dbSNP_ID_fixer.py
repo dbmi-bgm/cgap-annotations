@@ -55,11 +55,12 @@ def main(args):
     out_file_name = args['regionfile']
 
     with open(out_file_name, 'w') as fo:
-
         # create tabix iterator for full region in sample_vcf
-        sample_region = sample_tabix.querys(in_region)
+        try:
+            sample_region = sample_tabix.querys(in_region)
+        except:
+            return
         for sample_record in sample_region:
-
             # create variant object and corresponding region to query from dbSNP_vcf
             vnt_obj = sample_entry(sample_record[0],sample_record[1],sample_record[2],sample_record[3],sample_record[4])
             dbSNP_region = vnt_obj.CHROM+":"+str(vnt_obj.POS)+"-"+str(vnt_obj.POS)
