@@ -156,8 +156,8 @@ def main(args):
                     vnt_obj.add_tag_info(output)
                     index +=1
             vcf.write_variant(fo, vnt_obj)
-#     subprocess.run(["bgzip", args['outputfile']])
-#     subprocess.run(["tabix",args['outputfile']+".gz"])
+    subprocess.run(["bgzip", args['outputfile']])
+    subprocess.run(["tabix",args['outputfile']+".gz"])
 
 ################################################
 #   Main
