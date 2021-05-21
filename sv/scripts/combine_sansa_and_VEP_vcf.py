@@ -11,7 +11,6 @@
 #   Libraries
 ################################################
 from granite.lib import vcf_parser
-from os import remove
 import sys, argparse, subprocess, csv
 
 
