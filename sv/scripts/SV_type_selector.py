@@ -24,6 +24,7 @@ def main(args):
             if vnt_obj.get_tag_value("SVTYPE") in args['SVtypes']:
                 vcf.write_variant(fo, vnt_obj)
     subprocess.run(["bgzip", args['outputfile']])
+    subprocess.run(["tabix",args['outputfile']+".gz"])
 
 ################################################
 #   Main
