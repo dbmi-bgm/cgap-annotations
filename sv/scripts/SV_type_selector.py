@@ -1,4 +1,4 @@
-#!/usr/bin/env
+#!/usr/bin/env python3
 
 ################################################
 #
@@ -36,7 +36,7 @@ if __name__ == '__main__':
 
     parser.add_argument('-i','--inputVCF', help='input VCF file', required=True)
     parser.add_argument('-o','--outputfile', help='output VCF file', required=True)
-    parser.add_argument('-s','--SVtypes', nargs="*", help='list of DEL, DUP, INS, INV, BND to keep', choices=['DEL', 'DUP', 'INS', 'INV', 'BND'], required=True)
+    parser.add_argument('-s','--SVtypes', nargs='*', help='list of DEL, DUP, INS, INV, BND to keep', choices=['DEL', 'DUP', 'INS', 'INV', 'BND'], required=True)
     args = vars(parser.parse_args())
 
     main(args)
