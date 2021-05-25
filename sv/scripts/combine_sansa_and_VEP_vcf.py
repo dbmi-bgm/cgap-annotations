@@ -18,8 +18,7 @@ import sys, argparse, subprocess, csv
 #   Functions
 ################################################
 
-
-def main(args):
+def sv_dict(args):
     reader = csv.reader(open(args['inputSANSA']), delimiter=" ")
 
     # given any sansa output, get the name and row index for all population frequency values and the index for query.id (which links to ID for the VEP VCF)
@@ -98,7 +97,9 @@ def main(args):
                 if row_gnomAD_SV_TYPE == sample_SV_TYPE: #if current line also matches
                     if row_AF < dict_AF: #if new is more rare, replace the existing entry
                         sv_dictionary[SV_ID] = row_annotations
+    return sv_dictionary, sansa_fields
 
+def main(args, sv_dictionary, sansa_fields):
     # now we read the VCF from VEP and update it.
     vcf = vcf_parser.Vcf(args['inputVEPvcf'])
 
@@ -172,4 +173,5 @@ if __name__ == '__main__':
 
     args = vars(parser.parse_args())
 
-    main(args)
+    sv_dictionary, sansa_fields = sv_dict(args)
+    main(args, sv_dictionary, sansa_fields)
