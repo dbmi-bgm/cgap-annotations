@@ -76,5 +76,5 @@ def test_dictionary_construction():
     args = {'inputVEPvcf': 'test/files/SV_type_selector_input.vcf.gz', 'inputSANSA':'test/files/sansa_testing_file.txt','outputfile':'output.vcf'}
     # Test
     dict, list = sv_dict(args)
-    expected_dict = json.load(open('/Users/phil_hms/cgap-annotations/sv/scripts/test/files/sv_dictionary_file.json',))
+    expected_dict = json.load(open('test/files/sv_dictionary_file.json',))
     assert dict == expected_dict
