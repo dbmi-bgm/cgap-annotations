@@ -11,6 +11,9 @@ from combine_sansa_and_VEP_vcf import (
                             sv_dict as sv_dict
                            )
 
+from combine_sansa_and_VEP_vcf import (
+                            main as main
+                           )
 #################################################################
 # Description of variants in sansa_testing_file.txt (Space DELIM)
 #################################################################
@@ -66,6 +69,8 @@ from combine_sansa_and_VEP_vcf import (
 # 23-24 (DUP002726SUR) common DUP or rare CNV to DUP
 # DUP DUP match is better (AF = 1), goes in dict
 
+# the second function tests the second functionality
+
 #################################################################
 #   Tests
 #################################################################
@@ -78,3 +83,18 @@ def test_dictionary_construction():
     dict, list = sv_dict(args)
     expected_dict = json.load(open('test/files/sv_dictionary_file.json',))
     assert dict == expected_dict
+
+def test_full_process():
+    # Variables and Run
+    args = {'inputVEPvcf': 'test/files/full_combine_test_file.vcf.gz', 'inputSANSA': 'test/files/chr19_sansa.txt','outputfile':'output.vcf'}
+    # Test
+    sv_dictionary, sansa_fields = sv_dict(args)
+    main(args, sv_dictionary, sansa_fields)
+    a = os.popen('bgzip -c -d output.vcf.gz')
+    b = os.popen('bgzip -c -d test/files/full_combined_test_reference_file.vcf.gz')
+
+    assert [row for row in a.read()] == [row for row in b.read()]
+
+    # Clean
+    os.remove('output.vcf.gz')
+    os.remove('output.vcf.gz.tbi')
