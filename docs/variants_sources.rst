@@ -16,6 +16,8 @@ Source files for `Software`_ and `Plugins`_.
 .. _Software: https://github.com/Ensembl/ensembl-vep/tree/release/101
 .. _Plugins: https://github.com/Ensembl/VEP_plugins/tree/release/101
 
+*Note that beginning in v23 of cgap-pipeline, a minor modification was added to the ``dbNSFP`` plugin (see dbNSFP section below).
+
 Annotation sources
 ------------------
 
@@ -90,6 +92,13 @@ dbNSFP
 *Current version 4.1a.*
 
 This is the data source used by ``dbNSFP`` plugin.
+
+Beginning in v23 of cgap-pipeline, a small modification was made to the source code for the ``dbNSFP`` plugin to allow for annotation of non-missense variants. The change was made at line 148 and is shown below with the original code commented out.
+
+.. code-block:: perl
+
+  #my %INCLUDE_SO = map {$_ => 1} qw(missense_variant stop_lost stop_gained start_lost);
+  my %INCLUDE_SO = map {$_ => 1} qw(missense_variant stop_lost stop_gained start_lost splice_donor_variant splice_acceptor_variant splice_region_variant frameshift inframe_insertion inframe_deletion);
 
 Source file `dbNSFP`_.
 
