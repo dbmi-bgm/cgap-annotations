@@ -12,7 +12,7 @@
 ################################################
 from granite.lib import vcf_parser
 import argparse, subprocess, os
-import zipfile
+import tarfile
 
 ################################################
 #   Functions
@@ -22,9 +22,8 @@ def recip_overlap(v1_coor, v2_coor):
     return min(overlap/(v1_coor[1]-v1_coor[0]), overlap/(v2_coor[1]-v2_coor[0]))
 
 def match(args):
-    #unzip the archive
-    with zipfile.ZipFile(args['dirPath20vcf'], 'r') as zip_ref:
-        zip_ref.extractall()
+    #untar the archive
+    tarfile.open(args['dirPath20vcf']).extractall()
 
     #inputs
     sample = vcf_parser.Vcf(args['inputSampleVCF'])
