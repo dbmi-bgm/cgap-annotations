@@ -136,8 +136,8 @@ def main(args, sv_dictionary, sansa_fields):
         vcf.header.add_tag_definition(tag_def)
 
     # add the format line for SP
-    SP = '##FORMAT=<ID=SP,Number=.,Type=String,Description="Names of SV callers that identified this variant">'
-    vcf.header.add_tag_definition(SP)
+    #SP = '##FORMAT=<ID=SP,Number=.,Type=String,Description="Names of SV callers that identified this variant">'
+    #vcf.header.add_tag_definition(SP)
 
     # write the updated header and annotations
     with open(args['outputfile'], 'w') as fo:
