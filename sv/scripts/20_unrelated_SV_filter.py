@@ -23,14 +23,14 @@ def recip_overlap(v1_coor, v2_coor):
 
 def match(args):
     #unzip the archive
-    with zipfile.ZipFile("20_files.zip", 'r') as zip_ref:
+    with zipfile.ZipFile(args['dirPath20vcf'], 'r') as zip_ref:
         zip_ref.extractall()
 
     #inputs
     sample = vcf_parser.Vcf(args['inputSampleVCF'])
     wiggle = int(args['wiggle'])#50
     recip = float(args['recip'])#0.8
-    unrelated_dir = args['dirPath20vcf']
+    unrelated_dir = 'unrelated' #args['dirPath20vcf']
 
     for filename in os.listdir(unrelated_dir):
         if filename.endswith(".vcf.gz"):
