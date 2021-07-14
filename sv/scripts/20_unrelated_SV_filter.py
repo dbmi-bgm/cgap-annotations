@@ -17,6 +17,7 @@ import tarfile
 ################################################
 #   Functions
 ################################################
+
 def recip_overlap(v1_coor, v2_coor):
     overlap = max(0, min(v1_coor[1], v2_coor[1]) - max(v1_coor[0], v2_coor[0]))
     return min(overlap/(v1_coor[1]-v1_coor[0]), overlap/(v2_coor[1]-v2_coor[0]))
@@ -37,12 +38,13 @@ def match(args):
             vcf1_dict = {}
             # add unrelated SVs to a dictionary
             for vnt_obj in unrelatedVCF.parse_variants():
-                if vnt_obj.CHROM not in vcf1_dict:
-                    vcf1_dict[vnt_obj.CHROM]=[[vnt_obj.get_tag_value("SVTYPE"),int(vnt_obj.POS),int(vnt_obj.get_tag_value("END"))]]
-                else:
-                    #if [vnt_obj.ALT,int(vnt_obj.POS),int(vnt_obj.get_tag_value("END"))] not in vcf1_dict[vnt_obj.CHROM]:
-                    #    vcf1_dict[vnt_obj.CHROM].append([vnt_obj.ALT,int(vnt_obj.POS),int(vnt_obj.get_tag_value("END"))])
-                    vcf1_dict[vnt_obj.CHROM].append([vnt_obj.get_tag_value("SVTYPE"),int(vnt_obj.POS),int(vnt_obj.get_tag_value("END"))])
+                if vnt_obj.get_tag_value("SVTYPE") in args['SVtypes']:
+                    if vnt_obj.CHROM not in vcf1_dict:
+                        vcf1_dict[vnt_obj.CHROM]=[[vnt_obj.get_tag_value("SVTYPE"),int(vnt_obj.POS),int(vnt_obj.get_tag_value("END"))]]
+                    else:
+                        #if [vnt_obj.ALT,int(vnt_obj.POS),int(vnt_obj.get_tag_value("END"))] not in vcf1_dict[vnt_obj.CHROM]:
+                        #    vcf1_dict[vnt_obj.CHROM].append([vnt_obj.ALT,int(vnt_obj.POS),int(vnt_obj.get_tag_value("END"))])
+                        vcf1_dict[vnt_obj.CHROM].append([vnt_obj.get_tag_value("SVTYPE"),int(vnt_obj.POS),int(vnt_obj.get_tag_value("END"))])
             # write out variants that match between sample and individual from 20 unrelated
             matchedFile = "matched_"+filename.split(".")[0]+"."+filename.split(".")[1]
             with open(matchedFile, 'w') as fo:
@@ -115,7 +117,8 @@ if __name__ == '__main__':
     parser.add_argument('-u','--max_unrelated', help='number of unrelated individuals that can share variant with sample without being filtered out', required=True)
     parser.add_argument('-w','--wiggle', help='int for number of bp wiggle on either side of each breakpoint', required=True)
     parser.add_argument('-r','--recip', help='float for proportion of overlap between variants', required=True)
-    parser.add_argument('-d','--dirPath20vcf', help='path to directory containing 20 unrelated VCFs', required=True)
+    parser.add_argument('-d','--dirPath20vcf', help='path to tar file of 20 unrelated VCFs', required=True)
+    parser.add_argument('-s','--SVtypes', nargs='*', help='list of variant types to consider from 20 unrelated VCFs (DEL, DUP, INS, INV). BND not supported', choices=['DEL', 'DUP', 'INS', 'INV'], required=True)
 
     args = vars(parser.parse_args())
 
