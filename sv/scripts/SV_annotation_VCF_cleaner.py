@@ -1,9 +1,9 @@
-#!/usr/bin/env python3
+#!/usr/bin/env
 
 ################################################
 #
-#  Script to hard filter SVs based on length
-#     BNDs not supported in MANTA format
+#      Script to clean SV VCF for
+#        better SV visualization
 #
 ################################################
 
@@ -22,8 +22,10 @@ def main(args):
     with open(args['outputfile'], 'w') as fo:
         vcf.write_header(fo)
         for vnt_obj in vcf.parse_variants():
-            if abs(int(vnt_obj.get_tag_value("SVLEN"))) <= int(args['lengthBP']):
-                vcf.write_variant(fo, vnt_obj)
+            vnt_obj.REF = "."
+            vnt_obj.ALT = "<"+vnt_obj.get_tag_value("SVTYPE")+">"
+            vnt_obj.remove_tag_info("CSQ")
+            vcf.write_variant(fo, vnt_obj)
     subprocess.run(["bgzip", args['outputfile']])
     subprocess.run(["tabix",args['outputfile']+".gz"])
 
@@ -33,11 +35,10 @@ def main(args):
 
 if __name__ == '__main__':
 
-    parser = argparse.ArgumentParser(description='Filter SV VCF for SVs by length')
+    parser = argparse.ArgumentParser(description='Clean SV VCF for easier visualization')
 
     parser.add_argument('-i','--inputVCF', help='input VCF file', required=True)
     parser.add_argument('-o','--outputfile', help='output VCF file', required=True)
-    parser.add_argument('-l','--lengthBP', help='int for maximum length (in bp) for an SV to pass filter', required=True)
     args = vars(parser.parse_args())
 
     main(args)
