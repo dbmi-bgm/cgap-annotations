@@ -1,6 +1,5 @@
 #Pipeline
 argparse
-tabix
 granite-suite
 pyliftover==0.4
 pytest
