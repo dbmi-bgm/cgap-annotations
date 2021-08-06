@@ -11,7 +11,7 @@ See full [*documentation*](https://cgap-annotations.readthedocs.io/en/latest/ "d
 │   └── updates
 │       └── update_2020-10-22
 └── variants
-|   └── scripts
+│   └── scripts
 └── sv
     └── scripts
 ```
