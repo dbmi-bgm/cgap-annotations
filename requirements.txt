@@ -1,15 +1,9 @@
 #Pipeline
-sys
 argparse
 tabix
-os
 granite-suite
-subprocess
 pyliftover==0.4
 pytest
 
 #Other
-json
-re
-pickle
 Bio
