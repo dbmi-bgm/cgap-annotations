@@ -11,6 +11,8 @@ See full [*documentation*](https://cgap-annotations.readthedocs.io/en/latest/ "d
 │   └── updates
 │       └── update_2020-10-22
 └── variants
+|   └── scripts
+└── sv
     └── scripts
 ```
 
@@ -28,4 +30,10 @@ This folder contains updates and modifications to annotations for genes.
 
 #### scripts
 
-This folder contains scripts used to modify/extend annotations for variants.
+This folder contains scripts used to modify/extend annotations for short nucleotide variants (SNVs).
+
+## sv
+
+#### scripts
+
+This folder contains scripts used to modify/extend annotations for structural variants (SVs).
