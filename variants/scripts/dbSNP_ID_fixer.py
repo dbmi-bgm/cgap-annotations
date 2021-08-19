@@ -58,7 +58,7 @@ def main(args):
         # create tabix iterator for full region in sample_vcf
         try:
             sample_region = sample_tabix.querys(in_region)
-        except:
+        except tabix.TabixError:
             return
         for sample_record in sample_region:
             # create variant object and corresponding region to query from dbSNP_vcf
