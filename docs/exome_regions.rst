@@ -2,7 +2,7 @@
 Generation of the exome region file
 ===================================
 
-Data sources and code to generate the exome region file used by HaplotyeCaller in exome runs
+Data sources and code used to generate the exome region file used by HaplotyeCaller in WES runs
 
 Current version
 +++++++++++++++
@@ -21,7 +21,7 @@ VEP v101 `gtf`_ file :
 
 .. _gtf: ftp://ftp.ensembl.org/pub/release-101/gtf/homo_sapiens/
 
-  - homo_sapiens_vep_101_GRCh38.tar.gz
+  - Homo_sapiens.GRCh38.101.gtf.gz
 
 
 Reference file creation
@@ -31,7 +31,7 @@ To transform this VEP ``gtf`` file into a comprehensive ``bed`` file of all poss
 
 ::
 
-    tar -xf homo_sapiens_vep_101_GRCh38.tar.gz
+    bgzip -d Homo_sapiens.GRCh38.101.gtf.gz
 
     python exome_hg38_region_of_interest.py Homo_sapiens.GRCh38.101.gtf regions_bed_final.bed
 
