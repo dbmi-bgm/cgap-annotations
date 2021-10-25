@@ -43,7 +43,7 @@ if __name__ == '__main__':
 
     parser.add_argument('-i','--inputSampleVCF', help='input sample VCF file', required=True)
     parser.add_argument('-o','--outputfile', help='output file name for filtered VCF', required=True)
-    parser.add_argument('-d','--min_depth', help='minimum DP for variant to be kept __________', required=True)
+    parser.add_argument('-d','--min_depth', help='minimum DP (depth) value for a given variant. At least 1 sample must have DP >= min_depth to keep a variant', required=True)
 
     args = vars(parser.parse_args())
 
