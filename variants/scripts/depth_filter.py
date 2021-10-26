@@ -12,7 +12,7 @@
 #   Libraries
 ################################################
 from granite.lib import vcf_parser
-import argparse
+import argparse, subprocess
 
 ################################################
 #   Functions
@@ -32,6 +32,9 @@ def main(args):
                     if int(vnt_obj.get_genotype_value(sample, "DP")) >= min_depth_to_keep:
                         in_vcf.write_variant(fo, vnt_obj)
                         break
+
+    subprocess.run(["bgzip", args['outputfile']])
+    subprocess.run(["tabix", args['outputfile']+".gz"])
 
 ################################################
 #   Main
