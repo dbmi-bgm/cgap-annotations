@@ -5,8 +5,6 @@ import sys, os
 import pytest
 from subprocess import Popen
 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
-
 from depth_filter import (
                             main as main_depth_filter
                            )

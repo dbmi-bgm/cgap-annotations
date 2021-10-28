@@ -2,9 +2,7 @@
 #   Libraries
 #################################################################
 import sys, os
-import pytest 
-
-sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
+import pytest
 
 from dbSNP_ID_fixer import (
                             main as main_dbSNP_ID_fixer
