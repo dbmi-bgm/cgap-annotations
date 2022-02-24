@@ -1,6 +1,6 @@
-========
-Variants
-========
+===================
+Variant Annotations
+===================
 
 .. toctree::
   :maxdepth: 2

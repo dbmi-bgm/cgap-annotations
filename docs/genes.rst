@@ -1,6 +1,6 @@
-=====
-Genes
-=====
+================
+Gene Annotations
+================
 
 .. toctree::
   :maxdepth: 2
