@@ -7,7 +7,7 @@
 Overview
 ========
 
-This is a documentation for the annotation of genes and variants annotation in CGAP. Additionally, information required to recreate reference files that have been modified for generated for other steps in the CGAP Pipelines is also stored here.
+This is a documentation for the annotation of genes and variants annotation in CGAP. Additionally, information required to recreate reference files that have been modified or generated for other steps in the CGAP Pipelines is also stored here.
 
 The files referred to in these docs are stored in S3 bucket:
 
