@@ -1,9 +1,9 @@
 ================
-Other references
+Other References
 ================
 
 .. toctree::
   :maxdepth: 2
 
-  genes_sources
   exome_regions
+  bic-seq2_mappability
