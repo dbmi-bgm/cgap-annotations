@@ -1,16 +1,13 @@
-===================================
-Generation of the exome region file
-===================================
+=================================
+HaplotypeCaller Exome Region File
+=================================
 
 Data sources and code used to generate the exome region file used by HaplotypeCaller in WES runs
 
-Current version
-+++++++++++++++
-
-*Accessed 2021-10-21.*
-
 VEP v101
 --------
+
+*Accessed 2021-10-21.*
 
 VEP v101 `archive`_ website:
 
