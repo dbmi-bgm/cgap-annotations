@@ -7,11 +7,11 @@
 Overview
 ========
 
-This is a documentation for genes and variants annotation in CGAP.
-The current and older data sources available for annotation are stored in S3 bucket:
+This is a documentation for the annotation of genes and variants annotation in CGAP. Additionally, information required to recreate reference files that have been modified for generated for other steps in the CGAP Pipelines is also stored here.
+
+The files referred to in these docs are stored in S3 bucket:
 
     s3://cgap-annotations
-
 
 This bucket is private and not meant for public sharing of files. It is for internal file back-up and most of them are in Glacier.
 
@@ -26,3 +26,4 @@ This bucket is private and not meant for public sharing of files. It is for inte
 
    genes
    variants
+   other references

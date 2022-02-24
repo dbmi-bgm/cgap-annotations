@@ -2,7 +2,7 @@
 Generation of the exome region file
 ===================================
 
-Data sources and code used to generate the exome region file used by HaplotyeCaller in WES runs
+Data sources and code used to generate the exome region file used by HaplotypeCaller in WES runs
 
 Current version
 +++++++++++++++
@@ -23,6 +23,7 @@ VEP v101 `gtf`_ file :
 
   - Homo_sapiens.GRCh38.101.gtf.gz
 
+A copy of this file is also stored within the ``exome_regions`` folder of the ``cgap_annotations`` s3 bucket.
 
 Reference file creation
 -----------------------
