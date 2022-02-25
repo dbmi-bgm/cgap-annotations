@@ -143,6 +143,15 @@ The annotations that are used and maintained are listed in the ``gnomAD_2.1_fiel
 
 The filtered VCF was compressed with bgzip and indexed using Tabix.
 
+gnomAD Structural variants (GRCh38 liftover)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Current SV version is nstd166 hg38 liftover.*
+
+File was originally downloaded (here: https://ftp.ncbi.nlm.nih.gov/pub/dbVar/data/Homo_sapiens/by_study/vcf/nstd166.GRCh38.variant_call.vcf.gz), but that same link now takes you to a newer and incorrect file.
+
+See ``nstd166_GRCh38_readme.txt`` in the ``s3://cgap-annotations/gnomAD/SV/`` for in-depth explanation. We have copies of both the original (currently used) and the newer file in the bucket.
+
 CADD
 ^^^^
 
