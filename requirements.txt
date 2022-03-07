@@ -1,8 +1,5 @@
 #Pipeline
-argparse
 granite-suite
-pyliftover==0.4
-pytest
 
 #Other
 Bio
