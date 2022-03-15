@@ -1,6 +1,6 @@
-==================
-20 Unrelated Files
-==================
+===================================
+Unrelated Files and Panel of Normal
+===================================
 
 For many of the CGAP Pipelines, a collection of 20 de-identified UGRP samples are used to aid in filtering common variants. This documentation page outlines how they were created.
 
@@ -36,3 +36,11 @@ CNV Pipeline - BIC-seq2
     tar -cvf unrelated.tar unrelated
 
 5. This file was uploaded to the CGAP Portal as: ``318788cd-661f-4327-b571-d58a9b7c301e/GAPFICPW2884.vcf.tar``
+
+Somatic Sentieon - Panel of Normal (PON)
+----------------------------------------
+
+1. UGRP 20 Unrelated ``fastq`` files were run through the ``WGS Upstream Sentieon Proband v1`` Metaworkflow on the current cgap-wolf environment to generate 20 unrelated ``bam`` files.
+2. Following `this protocol from Sentieon <https://support.sentieon.com/manual/TNscope_usage/tnscope/#generating-a-panel-of-normal-vcf-file>`_ each resulting ``bam`` file was run individually through the ``WGS Somatic Sentieon Tumor Only v1`` Metaworkflow on the current cgap-wolf environment, including the ``GAPFI4LJRN98.vcf.gz`` dbSFP file for known SNPs.
+3. Continuing the protocol from above, the 20 resulting ``vcf`` output files were merged using ``bcftools`` (1.10.2).
+4. This file was uploaded to the CGAP Portal as: ``833c91e9-a8cd-470e-8100-32b49ed14159/GAPFIV1QKYU9.vcf.gz``
