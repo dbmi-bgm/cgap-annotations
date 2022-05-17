@@ -26,4 +26,4 @@ This bucket is private and not meant for public sharing of files. It is for inte
 
    genes
    variants
-   other references
+   other_references
