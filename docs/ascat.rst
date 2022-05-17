@@ -24,8 +24,8 @@ We operate on chr-based BAM files, so the original loci files were modified and 
 `for i in {1..22} X; do sed -i 's/^/chr/' G1000_loci_hg38_chr${i}.txt; done`
 
 
-Alleles files
-^^^^^^^^^^^^^
+Allele files
+^^^^^^^^^^^^
 
 Alleles files contain SNP positions with their reference and alternative nucletide bases based on the 1000Genomes prepared for GRCh38, available `here <https://www.dropbox.com/s/uouszfktzgoqfy7/G1000_alleles_hg38.zip>`__ (version 20092021). 
 
