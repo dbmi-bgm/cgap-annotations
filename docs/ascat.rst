@@ -27,7 +27,7 @@ We operate on chr-based BAM files, so the original loci files were modified and 
 Allele files
 ^^^^^^^^^^^^
 
-Alleles files contain SNP positions with their reference and alternative nucleotide bases based on the 1000Genomes prepared for GRCh38, available `here <https://www.dropbox.com/s/uouszfktzgoqfy7/G1000_alleles_hg38.zip>`__ (version 20092021). 
+Allele files contain SNP positions with their reference and alternative nucleotide bases based on the 1000Genomes prepared for GRCh38, available `here <https://www.dropbox.com/s/uouszfktzgoqfy7/G1000_alleles_hg38.zip>`__ (version 20092021). 
 
 GC Correction file
 ^^^^^^^^^^^^^^^^^^
