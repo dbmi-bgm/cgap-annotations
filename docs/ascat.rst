@@ -13,7 +13,7 @@ Source files for `Software`_ .
 
 .. _Software: https://github.com/VanLoo-lab/ascat
 
-ASCAT requires input files that are reused in each run. All the data are stored in a single `tar` file, which includes: 
+ASCAT requires input files that are reused in each run. The `data sources <https://github.com/VanLoo-lab/ascat/tree/master/ReferenceFiles/WGS>`__  can be found in the ASCAT repository (commit 7fc8c9d). For our purposes, we created a single `tar` file, which includes: 
 
 Loci files
 ^^^^^^^^^^
@@ -27,7 +27,7 @@ We operate on chr-based BAM files, so the original loci files were modified and 
 Allele files
 ^^^^^^^^^^^^
 
-Alleles files contain SNP positions with their reference and alternative nucletide bases based on the 1000Genomes prepared for GRCh38, available `here <https://www.dropbox.com/s/uouszfktzgoqfy7/G1000_alleles_hg38.zip>`__ (version 20092021). 
+Alleles files contain SNP positions with their reference and alternative nucleotide bases based on the 1000Genomes prepared for GRCh38, available `here <https://www.dropbox.com/s/uouszfktzgoqfy7/G1000_alleles_hg38.zip>`__ (version 20092021). 
 
 GC Correction file
 ^^^^^^^^^^^^^^^^^^
