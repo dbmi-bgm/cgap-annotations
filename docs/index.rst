@@ -1,19 +1,15 @@
-.. cgap-annotations documentation master file, created by
-   sphinx-quickstart on Mon Oct 26 11:21:37 2020.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 ========
 Overview
 ========
 
-This is a documentation for the annotation of genes and variants annotation in CGAP. Additionally, information required to recreate reference files that have been modified or generated for other steps in the CGAP Pipelines is also stored here.
+This documentation covers the sources of annotation used in CGAP for genes and variants.
+It also provides information on the creation of custom reference files used in the CGAP Pipelines.
 
-The files referred to in these docs are stored in S3 bucket:
+Copies of the files referred to in these docs are stored in the S3 bucket:
 
     s3://cgap-annotations
 
-This bucket is private and not meant for public sharing of files. It is for internal file back-up and most of them are in Glacier.
+The bucket is private and not meant for public files sharing. It is intended for internal back-up only and most of the files are stored in deeper archive tiers.
 
 
 .. toctree::

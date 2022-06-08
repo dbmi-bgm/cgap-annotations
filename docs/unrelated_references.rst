@@ -27,8 +27,8 @@ CNV Pipeline - BIC-seq2
 -----------------------
 
 1. UGRP 20 Unrelated ``fastq`` files were retrieved from Glacier Deep Archive and uploaded to the current cgap-wolf environment.
-2. Each of the 20 samples were run through the ``WGS Upstream GATK Proband v27`` Metaworkflow, ending with a final ``bam`` file following ``workflow_gatk-ApplyBQSR``.
-3. Each of the resulting final ``bam`` files was run through the development version of the ``CNV Germline v1`` Metaworkflow, which included only 2 steps (``workflow_BICseq2_map_norm_seg`` and ``workflow_BICseq2_vcf_convert_vcf-check``). This development version still included chromosomes X and Y as well, which have since been removed from the production ``CNV Germline v1`` Metaworkflow.
+2. Each of the 20 samples were run through the ``WGS Upstream GATK Proband v27``, ending with a final ``bam`` file following ``workflow_gatk-ApplyBQSR``.
+3. Each of the resulting final ``bam`` files was run through the development version of the ``CNV Germline v1``, which included only 2 steps (``workflow_BICseq2_map_norm_seg`` and ``workflow_BICseq2_vcf_convert_vcf-check``). This development version still included chromosomes X and Y as well, which have since been removed from the production ``CNV Germline v1``.
 4. The resulting ``vcf`` files were downloaded to a folder named ``unrelated``, which was compressed:
 
 ::
@@ -40,7 +40,7 @@ CNV Pipeline - BIC-seq2
 Somatic Sentieon - Panel of Normal (PON)
 ----------------------------------------
 
-1. UGRP 20 Unrelated ``fastq`` files were run through the ``WGS Upstream Sentieon Proband v1`` Metaworkflow on the current cgap-wolf environment to generate 20 unrelated ``bam`` files.
-2. Following `this protocol from Sentieon <https://support.sentieon.com/manual/TNscope_usage/tnscope/#generating-a-panel-of-normal-vcf-file>`_ each resulting ``bam`` file was run individually through the ``WGS Somatic Sentieon Tumor Only v1`` Metaworkflow on the current cgap-wolf environment, including the ``GAPFI4LJRN98.vcf.gz`` dbSNP file for known SNPs.
+1. UGRP 20 Unrelated ``fastq`` files were run through the ``WGS Upstream Sentieon Proband v1`` on the current cgap-wolf environment to generate 20 unrelated ``bam`` files.
+2. Following `this protocol from Sentieon <https://support.sentieon.com/manual/TNscope_usage/tnscope/#generating-a-panel-of-normal-vcf-file>`_ each resulting ``bam`` file was run individually through the ``WGS Somatic Sentieon Tumor Only v1`` on the current cgap-wolf environment, including the ``GAPFI4LJRN98.vcf.gz`` dbSNP file for known SNPs.
 3. Continuing the protocol from above, the 20 resulting ``vcf`` output files were merged using ``bcftools`` (1.10.2).
 4. This file was uploaded to the CGAP Portal as: ``833c91e9-a8cd-470e-8100-32b49ed14159/GAPFIV1QKYU9.vcf.gz``

@@ -4,27 +4,25 @@ Data Sources
 
 Software and data sources for variants annotation.
 
-Vep
+VEP
 +++
 
 *Current software version is 101.*
 
-Annotation uses Vep software.
+Annotation uses VEP software.
 
 Source files for `Software`_ and `Plugins`_.
 
 .. _Software: https://github.com/Ensembl/ensembl-vep/tree/release/101
 .. _Plugins: https://github.com/Ensembl/VEP_plugins/tree/release/101
 
-*Note that beginning in v23 of cgap-pipeline, a minor modification was added to the ``dbNSFP`` plugin (see dbNSFP section below).
-
 Annotation sources
 ------------------
 
-Vep
+VEP
 ^^^
 
-This is the main annotation source for Vep.
+This is the main annotation source for VEP.
 
 Source file `v101`_ for homo_sapiens on GRCh38.
 
@@ -93,7 +91,7 @@ dbNSFP
 
 This is the data source used by ``dbNSFP`` plugin.
 
-Beginning in v23 of cgap-pipeline, a small modification was made to the source code for the ``dbNSFP`` plugin to allow for annotation of non-missense variants. The change was made at line 148 and is shown below with the original code commented out.
+A small modification was made to the source code for the ``dbNSFP`` plugin to allow for annotation of non-missense variants. The change is shown below with the original code commented out.
 
 .. code-block:: perl
 
@@ -115,7 +113,7 @@ To create the data source:
     $ zcat dbNSFP4.1a_variant.chr1.gz | head -n1 > h
     # Extract information and compress to bgzip
     $ zgrep -h -v ^#chr dbNSFP4.1a_variant.chr* | sort -T /path/to/tmp_folder -k1,1 -k2,2n - | cat h - | bgzip -c > dbNSFP4.1a.gz
-    # Create Tabix index
+    # Create tabix index
     $ tabix -s 1 -b 2 -e 2 dbNSFP4.1a.gz
 
 gnomAD genomes
@@ -129,19 +127,19 @@ Files have been preprocessed to reduce the number of annotations using ``filter_
 The annotations that are used and maintained are listed in ``gnomAD_3.1_fields.tsv`` file inside variants folder.
 
 gnomAD files have been filtered while splitting by chromosomes.
-The filtered VCF files have been concatenated, compressed with bgzip and indexed using Tabix.
+The filtered ``vcf`` files have been concatenated, compressed with ``bgzip`` and indexed using ``tabix``.
 
 gnomAD exomes
 ^^^^^^^^^^^^^
 
 *Current exome version 2.1.1 hg38 liftover.*
 
-The all chromosomes VCF (85.31 GiB, MD5: cff8d0cfed50adc9211d1feaed2d4ca7) was downloaded from https://gnomad.broadinstitute.org/downloads.
+The all chromosomes ``vcf`` (85.31 GiB, MD5: cff8d0cfed50adc9211d1feaed2d4ca7) was downloaded from https://gnomad.broadinstitute.org/downloads.
 
 This file was preprocessed to reduce the number of annotations using the ``gnomAD_exome_v2_filter.py`` scripts inside the scripts folder.
 The annotations that are used and maintained are listed in the ``gnomAD_2.1_fields.tsv`` file inside the variants folder.
 
-The filtered VCF was compressed with bgzip and indexed using Tabix.
+The filtered ``vcf`` was compressed with ``bgzip`` and indexed using ``tabix``.
 
 gnomAD Structural variants (GRCh38 liftover)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -157,7 +155,7 @@ CADD
 
 *Current version is v1.6*
 
-CADD SNV and indel files were downloaded from https://cadd-staging.kircherlab.bihealth.org/download
+CADD SNV and INDEL files were downloaded from https://cadd-staging.kircherlab.bihealth.org/download
 
 .. code-block:: bash
 
@@ -179,7 +177,7 @@ Conservation Scores
 
 These files were supplied to customs within VEP.
 
-Run Vep
+Run VEP
 -------
 
 .. code-block:: bash
@@ -216,23 +214,6 @@ Run Vep
     --custom <PATH/hg38.phyloP30way.bw>,phylop30mams,bigwig,exact,0
     --custom <PATH/hg38.phastCons100way.bw>,phastcons100verts,bigwig,exact,0
 
-Version
--------
-
-*Current version accessed 2021-04-20.*
-
-  - Vep: v101
-  - MaxEnt: v20040421
-  - ClinVar: v20201101
-  - SpliceAI: v1.3
-  - dbNSFP: v4.1a
-  - gnomAD: v3.1
-  - gnomAD_exomes: v2.1.1
-  - CADD: v1.6
-  - phyloP30way: hg38
-  - phyloP100way: hg38
-  - phastCons100way: hg38
-
 dbSNP
 +++++
 
@@ -262,3 +243,22 @@ hgvsg
 *Current version 20.05*
 
 The Human Genome Variation Society has strict guidelines and best practices for describing human genomic variants based on the reference genome, chromosomal position, and variant type. hgvsg can be used to describe all genomic variants, not just those within coding regions. The script used to generate hgvsg infomation in our pipeline implements the recommendations found here for DNA variants (http://varnomen.hgvs.org/recommendations/DNA/). We describe substitions, deletions, insertions, and deletion-insertions for all variants on the 23 nuclear chromosomes and the mitochondrial genome within this field.
+
+Version
++++++++
+
+*Current version accessed 2021-04-20.*
+
+  - VEP: v101
+  - MaxEnt: v20040421
+  - ClinVar: v20201101
+  - SpliceAI: v1.3
+  - dbNSFP: v4.1a
+  - gnomAD: v3.1
+  - gnomAD_exomes: v2.1.1
+  - CADD: v1.6
+  - phyloP30way: hg38
+  - phyloP100way: hg38
+  - phastCons100way: hg38
+  - dbSNP: v151
+  - hgvsg: 20.05

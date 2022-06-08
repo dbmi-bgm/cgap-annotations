@@ -60,7 +60,7 @@ The current mappability file was generated for 150 bp reads using a custom workf
 
     bedtools subtract -a hg38_full_mappability_150.bed -b centromeres.bed > hg38_full_mappability_150_no_centromeres.bed
 
-6. Finally, the bed file was parsed to generate a single mappability file for each chromosome in the format required by ``BIC-seq2 Norm``:
+6. Finally, the ``bed`` file was parsed to generate a single mappability file for each chromosome in the format required by ``BIC-seq2 Norm``:
 
 ::
 
