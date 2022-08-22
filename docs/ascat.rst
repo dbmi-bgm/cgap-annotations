@@ -1,11 +1,8 @@
-============
-Data Sources
-============
+==================
+ASCAT Data Sources
+==================
 
 Data sources for ASCAT.
-
-ASCAT
-+++++
 
 *Current software version is 3.0.0.*
 

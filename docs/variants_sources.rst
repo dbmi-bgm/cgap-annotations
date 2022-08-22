@@ -230,8 +230,8 @@ dbSNP
     $ bcftools index 00-All_keep5.vcf.gz
     $ tabix 00-All_keep5.vcf.gz
 
-hg19 Liftover
-+++++++++++++
+hg38 to hg19 Liftover (pyliftover)
+++++++++++++++++++++++++++++++++++
 
 This liftover (hg38 to hg19) is carried out exclusively with pyliftover (currently v0.4).
 
