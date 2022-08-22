@@ -2,7 +2,7 @@
 HaplotypeCaller Exome Region File
 =================================
 
-Data sources and code used to generate the exome region file used by HaplotypeCaller in WES runs.
+Data sources and code used to generate the exome region file used by ``HaplotypeCaller`` in WES runs.
 
 VEP v101
 --------
@@ -22,19 +22,16 @@ VEP v101 `gtf`_ file:
 
 A copy of this file is also stored within the ``exome_regions`` folder of the cgap-annotations s3 bucket.
 
-Reference file creation
+Reference File Creation
 -----------------------
 
 To transform this VEP ``gtf`` file into a comprehensive ``bed`` file of all possible transcripts and UTR regions, one python script and two ``bedtools`` (v2.30.0) commands were used.
 
-::
+.. code-block:: bash
 
     bgzip -d Homo_sapiens.GRCh38.101.gtf.gz
-
     python exome_hg38_region_of_interest.py Homo_sapiens.GRCh38.101.gtf regions_bed_final.bed
-
     bedtools sort -i regions_bed_final.bed > sort_regions_bed_final.bed
-
     bedtools merge -i sort_regions_bed_final.bed > merge_sort_regions_bed_final.bed
 
 ``exome_hg38_region_of_interest.py`` is available in this repository in ``/genes/exome_regions/``

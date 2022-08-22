@@ -1,12 +1,7 @@
 ==============================
-Preprocess Liftover Chain File
+hg19/GRCh37 to hg38 Chain File
 ==============================
 
-Data sources for the preprocess liftover.
+Chain file that translate coordinates from **hg19/GRCh37** to **hg38** genome build.
 
-hg19/GRCh37 to GRCh38 LiftOver (GATK)
-+++++++++++++++++++++++++++++++++++++
-
-This liftover step (hg19/GRCh37 to GRCh38) is carried out exclusively with GATK LiftoverVcf (Picard) (currently v4.2.6.1).
-
-The GRCh38 to hg19/GRCh37 chain file was supplied to GATK from UCSC, available  `here <https://hgdownload.soe.ucsc.edu/goldenPath/hg19/liftOver/hg19ToHg38.over.chain.gz>`__.
+The chain file was downloaded from UCSC, available  `here <https://hgdownload.soe.ucsc.edu/goldenPath/hg19/liftOver/hg19ToHg38.over.chain.gz>`__.
