@@ -50,7 +50,7 @@ The current mappability file was generated for 150 bp reads using a custom workf
   9. Select "get BED"
 
 
-5. This ``bed`` file was saved as ``centromeres.txt`` and subtracted from the existing mappability file:
+5. This ``bed`` file was saved as ``centromeres.bed`` and subtracted from the existing mappability file:
 
 .. code-block:: bash
 
