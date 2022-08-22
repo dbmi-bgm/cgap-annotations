@@ -17,7 +17,7 @@ SV Pipeline - Manta
 3. Each of the resulting final ``bam`` files was run through a proband-only ``v2`` Manta workflow to produce ``vcf`` files.
 4. The resulting ``vcf`` files were downloaded to a folder named ``unrelated``, which was compressed:
 
-::
+.. code-block:: bash
 
     tar -cvf unrelated.tar unrelated
 
@@ -31,7 +31,7 @@ CNV Pipeline - BIC-seq2
 3. Each of the resulting final ``bam`` files was run through the development version of the ``CNV Germline v1``, which included only 2 steps (``workflow_BICseq2_map_norm_seg`` and ``workflow_BICseq2_vcf_convert_vcf-check``). This development version still included chromosomes X and Y as well, which have since been removed from the production ``CNV Germline v1``.
 4. The resulting ``vcf`` files were downloaded to a folder named ``unrelated``, which was compressed:
 
-::
+.. code-block:: bash
 
     tar -cvf unrelated.tar unrelated
 

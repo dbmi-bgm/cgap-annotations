@@ -9,7 +9,7 @@ VEP
 
 *Current software version is 101.*
 
-Annotation uses VEP software.
+Annotation uses ``VEP`` software.
 
 Source files for `Software`_ and `Plugins`_.
 
@@ -22,9 +22,9 @@ Annotation sources
 VEP
 ^^^
 
-This is the main annotation source for VEP.
+This is the main annotation source for ``VEP``.
 
-Source file `v101`_ for homo_sapiens on GRCh38.
+Source file `v101`_ for homo_sapiens on **GRCh38**.
 
 .. _v101: ftp://ftp.ensembl.org/pub/release-101/variation/vep/homo_sapiens_vep_101_GRCh38.tar.gz
 
@@ -48,7 +48,7 @@ ClinVar
 
 *Current version is v20201101. ClinVar is updated weekly.*
 
-This is the data source for ClinVar to be used with ``--custom``.
+This is the data source for ``ClinVar`` to be used with ``--custom``.
 
 .. code-block:: bash
 
@@ -77,7 +77,7 @@ Download requires a log in on illumina platform and `BaseSpace sequence CLI`_.
     # Download
     $ bs dataset download --id <datasetid> -o .
 
-For annotation we are using the raw hg38 files and their index:
+For annotation we are using the raw **hg38** files and their index:
 
   - ``spliceai_scores.raw.snv.hg38.vcf.gz``
   - ``spliceai_scores.raw.snv.hg38.vcf.gz.tbi``
@@ -155,14 +155,14 @@ CADD
 
 *Current version is v1.6*
 
-CADD SNV and INDEL files were downloaded from https://cadd-staging.kircherlab.bihealth.org/download
+``CADD`` SNV and INDEL files were downloaded from https://cadd-staging.kircherlab.bihealth.org/download
 
 .. code-block:: bash
 
     $ wget https://krishna.gs.washington.edu/download/CADD/v1.6/GRCh38/whole_genome_SNVs.tsv.gz
     $ wget https://krishna.gs.washington.edu/download/CADD/v1.6/GRCh38/gnomad.genomes.r3.0.indel.tsv.gz
 
-These files were supplied to the CADD plugin within VEP.
+These files were supplied to the ``CADD`` plugin within ``VEP``.
 
 Conservation Scores
 ^^^^^^^^^^^^^^^^^^^
@@ -175,7 +175,7 @@ Conservation Scores
     $ wget http://hgdownload.cse.ucsc.edu/goldenpath/hg38/phyloP100way/hg38.phyloP100way.bw
     $ wget http://hgdownload.cse.ucsc.edu/goldenpath/hg38/phastCons100way/hg38.phastCons100way.bw
 
-These files were supplied to customs within VEP.
+These files were supplied to customs within ``VEP``.
 
 Run VEP
 -------
@@ -230,19 +230,19 @@ dbSNP
     $ bcftools index 00-All_keep5.vcf.gz
     $ tabix 00-All_keep5.vcf.gz
 
-hg19 Liftover
-+++++++++++++
+hg38 to hg19 Liftover (pyliftover)
+++++++++++++++++++++++++++++++++++
 
-This liftover (hg38 to hg19) is carried out exclusively with pyliftover (currently v0.4).
+This liftover (**hg38** to **hg19**) is carried out exclusively with ``pyliftover`` (currently v0.4).
 
-The hg38 to hg19 chain file was supplied to pyliftover from UCSC: http://hgdownload.cse.ucsc.edu/goldenpath/hg38/liftOver/hg38ToHg19.over.chain.gz
+The **hg38** to **hg19** chain file was supplied to ``pyliftover`` from UCSC: http://hgdownload.cse.ucsc.edu/goldenpath/hg38/liftOver/hg38ToHg19.over.chain.gz
 
 hgvsg
 +++++
 
 *Current version 20.05*
 
-The Human Genome Variation Society has strict guidelines and best practices for describing human genomic variants based on the reference genome, chromosomal position, and variant type. hgvsg can be used to describe all genomic variants, not just those within coding regions. The script used to generate hgvsg infomation in our pipeline implements the recommendations found here for DNA variants (http://varnomen.hgvs.org/recommendations/DNA/). We describe substitions, deletions, insertions, and deletion-insertions for all variants on the 23 nuclear chromosomes and the mitochondrial genome within this field.
+The Human Genome Variation Society has strict guidelines and best practices for describing human genomic variants based on the reference genome, chromosomal position, and variant type. ``hgvsg`` can be used to describe all genomic variants, not just those within coding regions. The script used to generate ``hgvsg`` infomation in our pipeline implements the recommendations found here for DNA variants (http://varnomen.hgvs.org/recommendations/DNA/). We describe substitions, deletions, insertions, and deletion-insertions for all variants on the 23 nuclear chromosomes and the mitochondrial genome within this field.
 
 Version
 +++++++
