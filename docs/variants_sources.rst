@@ -230,17 +230,10 @@ dbSNP
     $ bcftools index 00-All_keep5.vcf.gz
     $ tabix 00-All_keep5.vcf.gz
 
-hg38/GRCh38 to hg19/GRCh37 lift-over (pyliftover)
-+++++++++++++++++++++++++++++++++++++++++++++++++
-
-This lift-over (**hg38/GRCh38** to **hg19/GRCh37**) is carried out exclusively with pyliftover (currently v0.4).
-
-The **hg38/GRCh38** to **hg19/GRCh37** chain file was supplied to pyliftover from UCSC: http://hgdownload.cse.ucsc.edu/goldenpath/hg38/liftOver/hg38ToHg19.over.chain.gz.
-
 Cytoband
 ++++++++
 
-The **hg38/GRCh38** Cytoband reference file from UCSC (http://hgdownload.cse.ucsc.edu/goldenpath/hg38/database/cytoBand.txt.gz).
+The **hg38/GRCh38** Cytoband reference file from UCSC: http://hgdownload.cse.ucsc.edu/goldenpath/hg38/database/cytoBand.txt.gz.
 
 HGVSg
 +++++
