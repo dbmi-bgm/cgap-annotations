@@ -9,22 +9,22 @@ VEP
 
 *Current software version is 101.*
 
-Annotation uses ``VEP`` software.
+Annotation uses Variant Effect Predictor (VEP) software.
 
 Source files for `Software`_ and `Plugins`_.
 
 .. _Software: https://github.com/Ensembl/ensembl-vep/tree/release/101
 .. _Plugins: https://github.com/Ensembl/VEP_plugins/tree/release/101
 
-Annotation sources
+Annotation Sources
 ------------------
 
 VEP
 ^^^
 
-This is the main annotation source for ``VEP``.
+This is the main annotation source for VEP.
 
-Source file `v101`_ for homo_sapiens on **GRCh38**.
+Source file `v101`_ for homo_sapiens on **hg38/GRCh38**.
 
 .. _v101: ftp://ftp.ensembl.org/pub/release-101/variation/vep/homo_sapiens_vep_101_GRCh38.tar.gz
 
@@ -37,7 +37,7 @@ MaxEnt
 
 *Current version v20040421.*
 
-This is the data source used by ``MaxEntScan`` plugin.
+This is the data source used by MaxEntScan plugin.
 
 Source file `fordownload`_.
 
@@ -48,7 +48,7 @@ ClinVar
 
 *Current version is v20201101. ClinVar is updated weekly.*
 
-This is the data source for ``ClinVar`` to be used with ``--custom``.
+This is the data source for ClinVar to be used with ``--custom``.
 
 .. code-block:: bash
 
@@ -62,7 +62,7 @@ SpliceAI
 
 *Current version is v1.3.*
 
-This is the data source used by ``SpliceAI`` plugin.
+This is the data source used by SpliceAI plugin.
 
 Download requires a log in on illumina platform and `BaseSpace sequence CLI`_.
 
@@ -77,7 +77,7 @@ Download requires a log in on illumina platform and `BaseSpace sequence CLI`_.
     # Download
     $ bs dataset download --id <datasetid> -o .
 
-For annotation we are using the raw **hg38** files and their index:
+For annotation we are using the raw **hg38/GRCh38** files and their index:
 
   - ``spliceai_scores.raw.snv.hg38.vcf.gz``
   - ``spliceai_scores.raw.snv.hg38.vcf.gz.tbi``
@@ -89,9 +89,9 @@ dbNSFP
 
 *Current version 4.1a.*
 
-This is the data source used by ``dbNSFP`` plugin.
+This is the data source used by dbNSFP plugin.
 
-A small modification was made to the source code for the ``dbNSFP`` plugin to allow for annotation of non-missense variants. The change is shown below with the original code commented out.
+A small modification was made to the source code for the dbNSFP plugin to allow for annotation of non-missense variants. The change is shown below with the original code commented out.
 
 .. code-block:: perl
 
@@ -116,7 +116,7 @@ To create the data source:
     # Create tabix index
     $ tabix -s 1 -b 2 -e 2 dbNSFP4.1a.gz
 
-gnomAD genomes
+gnomAD Genomes
 ^^^^^^^^^^^^^^
 
 *Current genome version 3.1.*
@@ -129,10 +129,10 @@ The annotations that are used and maintained are listed in ``gnomAD_3.1_fields.t
 gnomAD files have been filtered while splitting by chromosomes.
 The filtered ``vcf`` files have been concatenated, compressed with ``bgzip`` and indexed using ``tabix``.
 
-gnomAD exomes
+gnomAD Exomes
 ^^^^^^^^^^^^^
 
-*Current exome version 2.1.1 hg38 liftover.*
+*Current exome version 2.1.1 hg38/GRCh38 lift-over.*
 
 The all chromosomes ``vcf`` (85.31 GiB, MD5: cff8d0cfed50adc9211d1feaed2d4ca7) was downloaded from https://gnomad.broadinstitute.org/downloads.
 
@@ -141,10 +141,10 @@ The annotations that are used and maintained are listed in the ``gnomAD_2.1_fiel
 
 The filtered ``vcf`` was compressed with ``bgzip`` and indexed using ``tabix``.
 
-gnomAD Structural variants (GRCh38 liftover)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+gnomAD Structural Variants (hg38/GRCh38 lift-over)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-*Current SV version is nstd166 hg38 liftover.*
+*Current SV version is nstd166 hg38/GRCh38 lift-over.*
 
 File was originally downloaded (here: https://ftp.ncbi.nlm.nih.gov/pub/dbVar/data/Homo_sapiens/by_study/vcf/nstd166.GRCh38.variant_call.vcf.gz), but that same link now takes you to a newer and incorrect file.
 
@@ -155,19 +155,19 @@ CADD
 
 *Current version is v1.6*
 
-``CADD`` SNV and INDEL files were downloaded from https://cadd-staging.kircherlab.bihealth.org/download
+CADD SNV and INDEL files were downloaded from https://cadd-staging.kircherlab.bihealth.org/download
 
 .. code-block:: bash
 
     $ wget https://krishna.gs.washington.edu/download/CADD/v1.6/GRCh38/whole_genome_SNVs.tsv.gz
     $ wget https://krishna.gs.washington.edu/download/CADD/v1.6/GRCh38/gnomad.genomes.r3.0.indel.tsv.gz
 
-These files were supplied to the ``CADD`` plugin within ``VEP``.
+These files were supplied to the CADD plugin within VEP.
 
 Conservation Scores
 ^^^^^^^^^^^^^^^^^^^
 
-*Current version is UCSC hg38 for phyloP30way, phyloP100way, and phastCons100way*
+*Current version is UCSC hg38/GRCh38 for phyloP30way, phyloP100way, and phastCons100way*
 
 .. code-block:: bash
 
@@ -175,7 +175,7 @@ Conservation Scores
     $ wget http://hgdownload.cse.ucsc.edu/goldenpath/hg38/phyloP100way/hg38.phyloP100way.bw
     $ wget http://hgdownload.cse.ucsc.edu/goldenpath/hg38/phastCons100way/hg38.phastCons100way.bw
 
-These files were supplied to customs within ``VEP``.
+These files were supplied to customs within VEP.
 
 Run VEP
 -------
@@ -230,19 +230,24 @@ dbSNP
     $ bcftools index 00-All_keep5.vcf.gz
     $ tabix 00-All_keep5.vcf.gz
 
-hg38 to hg19 Liftover (pyliftover)
-++++++++++++++++++++++++++++++++++
+hg38/GRCh38 to hg19/GRCh37 lift-over (pyliftover)
++++++++++++++++++++++++++++++++++++++++++++++++++
 
-This liftover (**hg38** to **hg19**) is carried out exclusively with ``pyliftover`` (currently v0.4).
+This lift-over (**hg38/GRCh38** to **hg19/GRCh37**) is carried out exclusively with pyliftover (currently v0.4).
 
-The **hg38** to **hg19** chain file was supplied to ``pyliftover`` from UCSC: http://hgdownload.cse.ucsc.edu/goldenpath/hg38/liftOver/hg38ToHg19.over.chain.gz
+The **hg38/GRCh38** to **hg19/GRCh37** chain file was supplied to pyliftover from UCSC: http://hgdownload.cse.ucsc.edu/goldenpath/hg38/liftOver/hg38ToHg19.over.chain.gz.
 
-hgvsg
+Cytoband
+++++++++
+
+The **hg38/GRCh38** Cytoband reference file from UCSC (http://hgdownload.cse.ucsc.edu/goldenpath/hg38/database/cytoBand.txt.gz).
+
+HGVSg
 +++++
 
 *Current version 20.05*
 
-The Human Genome Variation Society has strict guidelines and best practices for describing human genomic variants based on the reference genome, chromosomal position, and variant type. ``hgvsg`` can be used to describe all genomic variants, not just those within coding regions. The script used to generate ``hgvsg`` infomation in our pipeline implements the recommendations found here for DNA variants (http://varnomen.hgvs.org/recommendations/DNA/). We describe substitions, deletions, insertions, and deletion-insertions for all variants on the 23 nuclear chromosomes and the mitochondrial genome within this field.
+The Human Genome Variation Society has strict guidelines and best practices for describing human genomic variants based on the reference genome, chromosomal position, and variant type. HGVSg can be used to describe all genomic variants, not just those within coding regions. The script used to generate HGVSg infomation in our pipeline implements the recommendations found here for DNA variants (http://varnomen.hgvs.org/recommendations/DNA/). We describe substitions, deletions, insertions, and deletion-insertions for all variants on the 23 nuclear chromosomes and the mitochondrial genome within this field.
 
 Version
 +++++++
@@ -257,8 +262,9 @@ Version
   - gnomAD: v3.1
   - gnomAD_exomes: v2.1.1
   - CADD: v1.6
-  - phyloP30way: hg38
-  - phyloP100way: hg38
-  - phastCons100way: hg38
+  - phyloP30way: hg38/GRCh38
+  - phyloP100way: hg38/GRCh38
+  - phastCons100way: hg38/GRCh38
   - dbSNP: v151
-  - hgvsg: 20.05
+  - HGVSg: 20.05
+  - Cytoband: hg38/GRCh38

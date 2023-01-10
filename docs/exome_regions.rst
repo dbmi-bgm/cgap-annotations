@@ -2,7 +2,7 @@
 HaplotypeCaller Exome Region File
 =================================
 
-Data sources and code used to generate the exome region file used by ``HaplotypeCaller`` in WES runs.
+Data sources and code used to generate the exome region file used by GATK ``HaplotypeCaller`` in WES runs.
 
 VEP v101
 --------
@@ -25,7 +25,7 @@ A copy of this file is also stored within the ``exome_regions`` folder of the cg
 Reference File Creation
 -----------------------
 
-To transform this VEP ``gtf`` file into a comprehensive ``bed`` file of all possible transcripts and UTR regions, one python script and two ``bedtools`` (v2.30.0) commands were used.
+To transform this VEP ``gtf`` file into a comprehensive ``bed`` file of all possible transcripts and UTR regions, one python script and two BEDTools (v2.30.0) commands were used.
 
 .. code-block:: bash
 
@@ -34,4 +34,4 @@ To transform this VEP ``gtf`` file into a comprehensive ``bed`` file of all poss
     bedtools sort -i regions_bed_final.bed > sort_regions_bed_final.bed
     bedtools merge -i sort_regions_bed_final.bed > merge_sort_regions_bed_final.bed
 
-``exome_hg38_region_of_interest.py`` is available in this repository in ``/genes/exome_regions/``
+``exome_hg38_region_of_interest.py`` is available in this repository in ``/genes/exome_regions/``.

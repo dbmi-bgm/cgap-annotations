@@ -1,19 +1,19 @@
-=========================
-BIC-seq2 Mappability File
-=========================
+========================
+BICseq2 Mappability File
+========================
 
-``BIC-seq2 Norm`` makes use of a unique mappability file to aid in the process of normalizing the raw coverage data presented in the ``seq`` files. This mappability file must be generated for each library size (e.g., 150 bp) given that unique mappability will vary with read length. A 100 bp read might not map uniquely at a given position, but a 150 bp read starting from the same position might map uniquely given 50 additional bases at the end.
+``BICseq2-norm`` makes use of a unique mappability file to aid in the process of normalizing the raw coverage data presented in the ``seq`` files. This mappability file must be generated for each library size (e.g., 150 bp) given that unique mappability will vary with read length. A 100 bp read might not map uniquely at a given position, but a 150 bp read starting from the same position might map uniquely given 50 additional bases at the end.
 
 The current mappability file was generated for 150 bp reads using a custom workflow, as follows:
 
-1. The file ``chromosomes.txt`` was created with only the 23 chromosomes from **hg38** (e.g., chr1, chr2 ... chr22, chrX, chrY; each on their own line). These regions were extracted from our **hg38** reference genome ``GAPFIXRDPDK5.fa`` to generate ``hg38_main_chrs.fa`` and a ``fasta`` index file was generated for this output.
+1. The file ``chromosomes.txt`` was created with only the 23 chromosomes from **hg38/GRCh38** (e.g., chr1, chr2 ... chr22, chrX, chrY; each on their own line). These regions were extracted from our **hg38/GRCh38** reference genome ``GAPFIXRDPDK5.fa`` to generate ``hg38_main_chrs.fa`` and a ``fasta`` index file was generated for this output.
 
 .. code-block:: bash
 
     for file in $(cat chromosomes.txt); do samtools faidx GAPFIXRDPDK5.fa $file >> hg38_main_chrs.fa; done
     samtools faidx hg38_main_chrs.fa
 
-2. Using an archived version of ``gemtools`` (v 1.7.1-i3) distributed in the github repo below, the initial mappability file was generated and converted to ``wig`` format:
+2. Using an archived version of GEMTools (v 1.7.1-i3) distributed in the github repo below, the initial mappability file was generated and converted to ``wig`` format:
 
 .. code-block:: bash
 
@@ -37,7 +37,7 @@ The current mappability file was generated for 150 bp reads using a custom workf
     ./bigWigToBedGraph hg38_full_mappability_150.bw  hg38_full_mappability_150.bedGraph
     ./bedGraphTobed hg38_full_mappability_150.bedGraph hg38_full_mappability_150.bed 1
 
-4. After testing this mappability file, we determined that repetitive regions at the centromeres were causing large numbers of artefactual CNVs. ``BIC-seq2`` had been optimized previously for **hg19** with mappability files that excluded the centromeres, so we decided to also exclude the centromeric regions from our **hg38** mappability file. The centromeres for **hg38** were pulled from UCSC as follows:
+4. After testing this mappability file, we determined that repetitive regions at the centromeres were causing large numbers of artefactual CNVs. BICseq2 had been optimized previously for **hg19/GRCh37** with mappability files that excluded the centromeres, so we decided to also exclude the centromeric regions from our **hg38/GRCh38** mappability file. The centromeres for **hg38/GRCh38** were pulled from UCSC as follows:
 
   1. Navigate to http://genome.ucsc.edu/cgi-bin/hgTables
   2. Under "assembly", select "Dec. 2013 (GRCh38/hg38)"
@@ -56,7 +56,7 @@ The current mappability file was generated for 150 bp reads using a custom workf
 
     bedtools subtract -a hg38_full_mappability_150.bed -b centromeres.bed > hg38_full_mappability_150_no_centromeres.bed
 
-6. Finally, the ``bed`` file was parsed to generate a single mappability file for each chromosome in the format required by ``BIC-seq2 Norm``:
+6. Finally, the ``bed`` file was parsed to generate a single mappability file for each chromosome in the format required by ``BICseq2-norm``:
 
 .. code-block:: bash
 
