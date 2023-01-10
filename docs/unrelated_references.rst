@@ -12,14 +12,14 @@ Sentieon
 
 1. 20 unrelated ``fastq`` files from UGRP dataset were run through the Upstream Sentieon module (v1.0.0) to generate analysis-ready ``bam`` files.
 2. The ``bam`` files were then processed using a custom module (SNV Unrelated, v1.0.0) that executes granite ``mpileupCounts`` and ``rckTar`` commands.
-3. The final file was uploaded to the CGAP Portal as: ``196ef586-be28-40c5-a244-d739fd173984/GAPFIMO8Y4K1.vcf.gz``
+3. The final file was uploaded to the CGAP Portal as: ``196ef586-be28-40c5-a244-d739fd173984/GAPFIMO8Y4K1.rck.tar``
 
 GATK
 ++++
 
 1. 20 unrelated ``fastq`` files from UGRP dataset were run through the Upstream GATK module (v1.0.0) to generate analysis-ready ``bam`` files.
 2. The ``bam`` files were then processed using a custom module (SNV Unrelated, v1.0.0) that executes granite ``mpileupCounts`` and ``rckTar`` commands.
-3. The final file was uploaded to the CGAP Portal as: ``eac862c0-8c87-4838-83cb-9a77412bff6f/GAPFIMO8Y4PZ.vcf.gz``
+3. The final file was uploaded to the CGAP Portal as: ``eac862c0-8c87-4838-83cb-9a77412bff6f/GAPFIMO8Y4PZ.rck.tar``
 
 
 Somatic Sentieon - Panel of Normal (PON)
@@ -34,8 +34,8 @@ Somatic Sentieon - Panel of Normal (PON)
 SV Pipeline - Manta
 -------------------
 
-1. UGRP 20 Unrelated ``fastq`` files were uploaded to the (now decommissioned) cgap-wolf environment.
-2. Each of the 20 samples were run through the Upstream GATK module (v24), ending with a final ``bam`` file following ``workflow_gatk-ApplyBQSR``.
+1. 20 unrelated ``fastq`` files from UGRP dataset were uploaded to the (now decommissioned) cgap-wolf environment.
+2. Each of the 20 samples was run through the Upstream GATK module (v24), ending with a final ``bam`` file following ``workflow_gatk-ApplyBQSR``.
 3. Each of the resulting final ``bam`` files was run through a proband-only Manta workflow (v2) to produce ``vcf`` files.
 4. The resulting ``vcf`` files were downloaded to a folder named ``unrelated``, which was compressed:
 
@@ -49,8 +49,8 @@ SV Pipeline - Manta
 CNV Pipeline - BICseq2
 ----------------------
 
-1. UGRP 20 Unrelated ``fastq`` files were retrieved from Glacier Deep Archive and uploaded to the current cgap-wolf environment.
-2. Each of the 20 samples were run through the Upstream GATK module (v27), ending with a final ``bam`` file following ``workflow_gatk-ApplyBQSR``.
+1. 20 unrelated ``fastq`` files from UGRP dataset were retrieved from Glacier Deep Archive and uploaded to the current cgap-wolf environment.
+2. Each of the 20 samples was run through the Upstream GATK module (v27), ending with a final ``bam`` file following ``workflow_gatk-ApplyBQSR``.
 3. Each of the resulting final ``bam`` files was run through the development version of the CNV module (v1), which included only 2 steps (``workflow_BICseq2_map_norm_seg`` and ``workflow_BICseq2_vcf_convert_vcf-check``). This development version still included chromosomes X and Y as well, which have since been removed from the production version.
 4. The resulting ``vcf`` files were downloaded to a folder named ``unrelated``, which was compressed:
 

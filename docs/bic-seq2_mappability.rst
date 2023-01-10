@@ -40,14 +40,14 @@ The current mappability file was generated for 150 bp reads using a custom workf
 4. After testing this mappability file, we determined that repetitive regions at the centromeres were causing large numbers of artefactual CNVs. BICseq2 had been optimized previously for **hg19/GRCh37** with mappability files that excluded the centromeres, so we decided to also exclude the centromeric regions from our **hg38/GRCh38** mappability file. The centromeres for **hg38/GRCh38** were pulled from UCSC as follows:
 
   1. Navigate to http://genome.ucsc.edu/cgi-bin/hgTables
-  2. Under "assembly", select "Dec. 2013 (GRCh38/hg38)"
-  3. Under "group", select "Mapping and Sequencing"
-  4. Under "track", select "Chromosome Band (Ideogram)"
-  5. Under "filter", select "create"
-  6. Under "gieStain", select "does" match, and type "acen" in the text box, then select "submit"
-  7. Under "output format", select "BED - browser extensible data"
-  8. Select "get output"
-  9. Select "get BED"
+  2. Under ``assembly``, select ``Dec. 2013 (GRCh38/hg38)``
+  3. Under ``group``, select ``Mapping and Sequencing``
+  4. Under ``track``, select ``Chromosome Band (Ideogram)``
+  5. Under ``filter``, select ``create``
+  6. Under ``gieStain``, select ``does`` match, and type ``acen`` in the text box, then select ``submit``
+  7. Under ``output format``, select ``BED - browser extensible data``
+  8. Select ``get output``
+  9. Select ``get BED``
 
 
 5. This ``bed`` file was saved as ``centromeres.bed`` and subtracted from the existing mappability file:
