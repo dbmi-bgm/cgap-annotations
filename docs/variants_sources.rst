@@ -132,21 +132,21 @@ The filtered ``vcf`` files have been concatenated, compressed with ``bgzip`` and
 gnomAD Exomes
 ^^^^^^^^^^^^^
 
-*Current exome version 2.1.1 hg38/GRCh38 lift-over.*
+*Current exome version 2.1.1 (hg38/GRCh38 lift-over).*
 
-The all chromosomes ``vcf`` (85.31 GiB, MD5: cff8d0cfed50adc9211d1feaed2d4ca7) was downloaded from https://gnomad.broadinstitute.org/downloads.
+The all chromosomes ``vcf`` was downloaded from https://gnomad.broadinstitute.org/downloads.
 
 This file was preprocessed to reduce the number of annotations using the ``gnomAD_exome_v2_filter.py`` scripts inside the scripts folder.
 The annotations that are used and maintained are listed in the ``gnomAD_2.1_fields.tsv`` file inside the variants folder.
 
 The filtered ``vcf`` was compressed with ``bgzip`` and indexed using ``tabix``.
 
-gnomAD Structural Variants (hg38/GRCh38 lift-over)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+gnomAD Structural Variants
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-*Current SV version is nstd166 hg38/GRCh38 lift-over.*
+*Current SV version is nstd166 (hg38/GRCh38 lift-over).*
 
-File was originally downloaded (here: https://ftp.ncbi.nlm.nih.gov/pub/dbVar/data/Homo_sapiens/by_study/vcf/nstd166.GRCh38.variant_call.vcf.gz), but that same link now takes you to a newer and incorrect file.
+File was originally downloaded here: https://ftp.ncbi.nlm.nih.gov/pub/dbVar/data/Homo_sapiens/by_study/vcf/nstd166.GRCh38.variant_call.vcf.gz, but that same link now takes to a newer and incorrect file.
 
 See ``nstd166_GRCh38_readme.txt`` in the ``s3://cgap-annotations/gnomAD/SV/`` for in-depth explanation. We have copies of both the original (currently used) and the newer file in the bucket.
 
@@ -162,7 +162,7 @@ CADD SNV and INDEL files were downloaded from https://cadd-staging.kircherlab.bi
     $ wget https://krishna.gs.washington.edu/download/CADD/v1.6/GRCh38/whole_genome_SNVs.tsv.gz
     $ wget https://krishna.gs.washington.edu/download/CADD/v1.6/GRCh38/gnomad.genomes.r3.0.indel.tsv.gz
 
-These files were supplied to the CADD plugin within VEP.
+This is the data source used by CADD plugin.
 
 Conservation Scores
 ^^^^^^^^^^^^^^^^^^^
